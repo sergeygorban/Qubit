@@ -1,0 +1,18 @@
+You can also specify sheet ranges via A1 notation:
+
+A1 Notation
+This is a string like Sheet1!A1:B2, that refers to a group of cells in the spreadsheet, and is typically used in
+formulas. For example, valid ranges are:
+
+    Sheet1!A1:B2 refers to the first two cells in the top two rows of Sheet1.
+    Sheet1!A:A refers to all the cells in the first column of Sheet1.
+    Sheet1!1:2 refers to the all the cells in the first two rows of Sheet1.
+    Sheet1!A5:A refers to all the cells of the first column of Sheet 1, from row 5 onward.
+    A1:B2 refers to the first two cells in the top two rows of the first visible sheet.
+    Sheet1 refers to all the cells in Sheet1.
+    If the sheet name has spaces or starts with a bracket, surround the sheet name with single quotes ('), e.g
+    'Sheet One'!A1:B2. For simplicity, it is safe to always surround the sheet name with single quotes.
+
+
+
+https://developers.google.com/sheets/api/reference/rest/v4/ValueInputOption - Constants for API Sheet

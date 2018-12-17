@@ -1,0 +1,37 @@
+Authorize Requests - https://developers.google.com/sheets/api/guides/authorizing
+
+1. Using OAuth 2.0 for Server to Server Applications - https://developers.google.com/identity/protocols/OAuth2ServiceAccount
+In order to create service account and credentials you need to do the following:
+
+   - Go to https://console.developers.google.com/iam-admin/serviceaccounts -> click "Create"
+   - Set Project Name -> click "Create";
+   - Click "Create service account" -> Set "Service account name" -> click "Create"
+   - Click "Select a role" -> Click "Project" -> click "Owner" -> click "Continue"
+   - Click "Create key" - set "Key type" = JSON - click "Create"
+   - Save creating_object key to the directory
+
+2. Using Api Key
+   - Create API Key
+
+
+In order to use google Sheets API you need to do the following:
+
+   - Enable google Sheets API
+   - Set  access to the sheet for user of the service account (for example, for-test@jmeter-219008.iam.gserviceaccount.com)
+   - If access to the sheet is carried out by an API key, then set access for the sheet by reference.
+
+
+
+Needed Jar files:
+
+
+Go to https://developers.google.com/api-client-library/java/google-oauth-java-client/setup#google-oauth-client ->
+click " downloads page" -> click "google-oauth-java-client-featured.zip" -> save zip file
+
+Go to https://mvnrepository.com/artifact/com.google.api-client/google-api-client/1.25.0 ->
+click "jar (199 KB)" -> save zip file
+
+Go to https://mvnrepository.com/artifact/com.google.apis/google-api-services-sheets/v4-rev546-1.25.0 ->
+click "jar (213 KB)" -> save zip file
+
+
