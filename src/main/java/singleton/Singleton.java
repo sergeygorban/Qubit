@@ -17,7 +17,7 @@ public enum Singleton {
 
         if (credentialServiceAccount == null) {
             this.credentialServiceAccount =
-                    new Auth().getCredentialUsingServiceAccountByFilePath(Const.PATH_TO_KEY.getValue());
+                    new Auth().getCredentialForSheet(Const.PATH_TO_SERVICE_ACCOUNT_KEY.getValue());
         }
 
         return credentialServiceAccount;

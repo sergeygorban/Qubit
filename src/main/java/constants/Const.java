@@ -3,7 +3,9 @@ package constants;
 public enum Const {
 
     // Path to the service account key for google
-    PATH_TO_KEY ("D:\\google\\Jmeter-adb2fb5d0f49.json"),
+    PATH_TO_SERVICE_ACCOUNT_KEY ("D:\\Git\\Modules\\src\\main\\java\\google\\GoogleApi-bab0e73e5451.json"),
+
+    PATH_TO_CREDENTIALS ("D:\\Git\\Modules\\src\\main\\java\\google\\credentials.json"),
 
     API_KEY ("AIzaSyBbc-p6rWEDfiUcaBI9tSBYFWM3-8H3E4Y");
 

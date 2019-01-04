@@ -35,23 +35,6 @@ public class MainRequest implements Request {
     private String charset = "UTF-8";
 
 
-    @Override
-    public int getResponseCode() {
-        return statusCode;
-    }
-
-    @Override
-    public String getCookieValue(String cookieName) {
-
-        return Arrays.stream(headers)
-                .filter(element -> element.getName().equals("Set-Cookie"))
-                .flatMap(arrCookies -> Arrays.stream(arrCookies.getElements()))
-                .filter(cookie -> cookie.getName().equals(cookieName))
-                .map(HeaderElement::getValue)
-                .findFirst()
-                .orElse("No cookies found");
-    }
-
     public String sendRequest(String method,
                               String url,
                               Map<String, String> header,
@@ -132,5 +115,22 @@ public class MainRequest implements Request {
                 .append(Arrays.toString(headers)).append("\n")
                 .append(httpResponse.getStatusLine())
                 .append("\n").append(entity).append("\n").toString();
+    }
+
+    @Override
+    public int getResponseCode() {
+        return statusCode;
+    }
+
+    @Override
+    public String getCookieValue(String cookieName) {
+
+        return Arrays.stream(headers)
+                .filter(element -> element.getName().equals("Set-Cookie"))
+                .flatMap(arrCookies -> Arrays.stream(arrCookies.getElements()))
+                .filter(cookie -> cookie.getName().equals(cookieName))
+                .map(HeaderElement::getValue)
+                .findFirst()
+                .orElse("No cookies found");
     }
 }
