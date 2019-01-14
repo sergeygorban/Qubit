@@ -1,6 +1,7 @@
 package http;
 
 
+import creating_object.StringToObject;
 import org.apache.http.Header;
 import org.apache.http.HeaderElement;
 import org.apache.http.client.config.RequestConfig;
@@ -23,7 +24,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Map;
 
-public class MainRequest implements Request {
+public class MainRequest {
 
     private final Logger logger = LogManager.getLogger(this);
 
@@ -35,10 +36,80 @@ public class MainRequest implements Request {
     private String charset = "UTF-8";
 
 
+    public void sendRequest(Api api, RequestObject object) {
+
+        if (api.getMethod().name().equals("GET")) {
+            throw new RuntimeException("Method 'GET' is not allowed");
+        }
+
+        RequestBuilder requestBuilder = RequestBuilder.create(api.getMethod().name());
+        requestBuilder.setConfig(RequestConfig.custom().setConnectTimeout(api.getConnectTimeout())
+                .setSocketTimeout(api.getSocketTimeout()).build())
+                .setUri(api.getUrl());
+        api.getHeaders().forEach(requestBuilder::addHeader);
+
+        HttpClientBuilder httpClientBuilder = HttpClients.custom();
+        BasicCookieStore cookieStore = null;
+
+        if (api.getCoocie() != null) {
+            cookieStore = new BasicCookieStore();
+            cookieStore.addCookie(api.getCoocie());
+            httpClientBuilder.setDefaultCookieStore(cookieStore);
+        }
+
+        String requestObject = object.getRequestObject();
+
+        if (requestObject != null) {
+            requestBuilder.setEntity(new StringEntity(requestObject, api.geCharset()));
+        }
+
+        Map<String, String> parameters = object.getRequestParameters();
+
+        if (parameters != null) {
+            parameters.forEach(requestBuilder::addParameter);
+        }
+
+        if (api.getUrl().startsWith("https")) {
+            try {
+                httpClientBuilder.setSSLContext(new SSLContextBuilder()
+                        .loadTrustMaterial(null, (certificate, authType) -> true).build())
+                        .setSSLHostnameVerifier(new NoopHostnameVerifier());
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+        HttpUriRequest request = requestBuilder.build();
+        logger.info(creatingRequest(request, cookieStore,
+                parameters != null ? parameters.toString() : "", requestObject));
+
+        try (CloseableHttpClient client = httpClientBuilder.build()) {
+
+            CloseableHttpResponse httpResponse = client.execute(request);
+            String response = EntityUtils.toString(httpResponse.getEntity());
+
+            logger.info(creatingResponse(httpResponse, response));
+
+            this.statusCode = httpResponse.getStatusLine().getStatusCode();
+            this.headers = httpResponse.getAllHeaders();
+
+            //return response;
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
     public String sendRequest(String method,
                               String url,
                               Map<String, String> header,
                               Cookie cookie, Map<String, String> parameters, String requestObject) {
+
+
+        if (method.equals("GET")) {
+            throw new RuntimeException("Method 'GET' is not allowed");
+        }
 
         RequestBuilder requestBuilder = RequestBuilder.create(method);
         requestBuilder.setConfig(RequestConfig.custom().setConnectTimeout(connectTimeout)
@@ -117,12 +188,10 @@ public class MainRequest implements Request {
                 .append("\n").append(entity).append("\n").toString();
     }
 
-    @Override
     public int getResponseCode() {
         return statusCode;
     }
 
-    @Override
     public String getCookieValue(String cookieName) {
 
         return Arrays.stream(headers)

@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public class StringToObject {
 
-    public static <T> T createResponseObject(String response, Class cl){
+    public <T> T createResponseObject(String response, Class cl){
 
         try {
             return new ObjectMapper().enable(DeserializationFeature.UNWRAP_ROOT_VALUE)
@@ -19,7 +19,7 @@ public class StringToObject {
     }
 
 
-    public static <T> T createResponseObj(String response, Class cl){
+    public <T> T createResponseObj(String response, Class cl){
 
         if (response != null && !response.isEmpty()) {
             try {
