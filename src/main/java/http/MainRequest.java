@@ -1,7 +1,5 @@
 package http;
 
-
-import creating_object.StringToObject;
 import org.apache.http.Header;
 import org.apache.http.HeaderElement;
 import org.apache.http.client.config.RequestConfig;
@@ -36,7 +34,7 @@ public class MainRequest {
     private String charset = "UTF-8";
 
 
-    public void sendRequest(Api api, RequestObject object) {
+    public String sendRequest(Api api, RequestObject object) {
 
         if (api.getMethod().name().equals("GET")) {
             throw new RuntimeException("Method 'GET' is not allowed");
@@ -80,6 +78,7 @@ public class MainRequest {
         }
 
         HttpUriRequest request = requestBuilder.build();
+
         logger.info(creatingRequest(request, cookieStore,
                 parameters != null ? parameters.toString() : "", requestObject));
 
@@ -93,7 +92,7 @@ public class MainRequest {
             this.statusCode = httpResponse.getStatusLine().getStatusCode();
             this.headers = httpResponse.getAllHeaders();
 
-            //return response;
+            return response;
 
         } catch (Exception e) {
             throw new RuntimeException(e);
