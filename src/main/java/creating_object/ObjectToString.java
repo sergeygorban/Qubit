@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class ObjectToString {
 
-    public static String createRequestObject(Object object){
+    public String createRequestObject(Object object){
 
         try {
             return new ObjectMapper().writeValueAsString(object);
