@@ -7,7 +7,6 @@ public interface Api {
 
     Method getMethod();
     String getUrl();
-    String getSecondUrl();
     Map<String, String> getHeaders();
     Cookie getCoocie();
     Class getClassForResponse();
