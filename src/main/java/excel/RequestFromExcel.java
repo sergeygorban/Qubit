@@ -204,22 +204,4 @@ public class RequestFromExcel {
         SEND_EMAIL = sendEmail;
     }
 
-    public static void main(String[] args) throws IOException {
-
-        //RequestFromExcel.sendRequest(Api.Сервіс_збережених_атрибутів_даних_Отримання_атрибута_даних);
-        //RequestFromExcel.sendRequest(Api.Сервіс_завантаження_даних_файлів_Завантаження);
-
-       // RequestFromExcel.sendRequest(Api.Сервіс_звязку_збережених_атрибутів_даних_з_видами_завантажуваних_даних_Добавление_связи);
-
-        //RequestFromExcel.sendRequest(Api.Сервіси_довідника_відповідності_значень_атрибутів_Видалення_даних_з_довідника);
-
-        //RequestFromExcel.sendRequest(Api.Сервіси_для_сторінок_у_СОВ_ОДВ_Сервіс_отримання_даних);
-
-        // RequestFromExcel.setStartReq(4);
-        //RequestFromExcel.setEndReq(2);
-        RequestFromExcel.sendRequest(Api.Сервис_Юли);
-
-
-
-    }
 }
