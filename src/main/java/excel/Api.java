@@ -6,7 +6,7 @@ package excel;
 public enum Api {
 
 
-    Сервіс_завантаження_даних_файлів_Завантаження("http://10","POST-MULT","","");
+    Test("http://10","POST-MULT","","");
 
     public final String STORAGE = "C:\\Users\\Admin\\Desktop\\111";
     public final String url;
