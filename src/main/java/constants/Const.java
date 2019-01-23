@@ -7,7 +7,7 @@ public enum Const {
 
     PATH_TO_CREDENTIALS ("D:\\Git\\Modules\\src\\main\\java\\google\\credentials.json"),
 
-    API_KEY ("AIzaSyBbc-p6rWEDfiUcaBI9tSBYFWM3-8H3E4Y");
+    API_KEY ("");
 
 
     private String value;

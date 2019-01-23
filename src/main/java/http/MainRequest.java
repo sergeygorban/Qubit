@@ -29,8 +29,8 @@ public class MainRequest {
     private int statusCode;
     private Header[] headers;
 
-    private int connectTimeout = 3000;
-    private int socketTimeout = 8000;
+    private int connectTimeout = 12000;
+    private int socketTimeout = 12000;
     private String charset = "UTF-8";
 
 
