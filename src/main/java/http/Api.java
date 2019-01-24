@@ -24,7 +24,7 @@ public interface Api {
         return 8000;
     };
 
-    static void expect(int seconds) {
+    static void expect(long seconds) {
 
         try {
             Thread.sleep(seconds * 1000);
