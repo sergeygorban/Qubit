@@ -8,7 +8,7 @@ import java.util.Optional;
 
 public class StringToObject {
 
-    public <T> T createResponseObject(String response, Class cl){
+    public <T> T createResponseObjectWithUnwrapRootValue(String response, Class cl){
 
         try {
             return new ObjectMapper().enable(DeserializationFeature.UNWRAP_ROOT_VALUE)
