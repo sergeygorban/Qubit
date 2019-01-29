@@ -36,6 +36,7 @@ public interface Api {
     enum Method {
         POST,
         DELETE,
+        PUT,
         GET;
     }
 }
