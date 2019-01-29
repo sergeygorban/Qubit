@@ -34,6 +34,17 @@ public class StringToObject {
         return null;
     }
 
+    public <T> T createResponseObjectWithUnwrapRootValue(String response, Api api){
+
+        try {
+            return new ObjectMapper().enable(DeserializationFeature.UNWRAP_ROOT_VALUE)
+                    .readerFor(api.getClass()).readValue(response);
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public <T> T createResponseObj(String response, Api api){
 
         if (response != null && !response.isEmpty()) {
