@@ -36,7 +36,6 @@ public class ValueForJson implements Function<Cell,JsonElement>{
             element = new JsonPrimitive(val);
         }
 
-
         return element;
     }
 }

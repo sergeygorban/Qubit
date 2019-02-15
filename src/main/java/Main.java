@@ -9,12 +9,16 @@ public class Main {
 
     public static void main(String[] args) throws GeneralSecurityException, IOException, MessagingException {
 
+
+
+
 /*        Gmail gmail = new Gmail.Builder(GoogleNetHttpTransport.newTrustedTransport(),
                 JacksonFactory.getDefaultInstance(), new Auth().getCredentialForGmail(Const.PATH_TO_SERVICE_ACCOUNT_KEY.getValue())).build();
 
         Main.sendMessage(gmail, "alprtest2@ukr.net", Main.createEmail("alprtest2@ukr.net", "alprtest@gmail.com", "1111", "2222"));*/
 
 
+/*
         Properties properties = new Properties();
         properties.put("mail.smtp.host", "smtp.gmail.com");
         properties.put("mail.smtp.port", "587");
@@ -37,6 +41,7 @@ public class Main {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+*/
 
 
 /*        // Укр нет
@@ -82,7 +87,7 @@ public class Main {
     }*/
 
 
-        try {
+     /*   try {
 
             properties.put("mail.store.protocol", "imaps");
             properties.put("mail.imaps.host", "imap.gmail.com");
@@ -128,7 +133,7 @@ public class Main {
             e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        }*/
 }
 
 /*
@@ -188,6 +193,9 @@ public class Main {
         gmail.users().messages().send("me", message).execute();
 
         dzgdfhg*/
+
+
+
 
 
 
