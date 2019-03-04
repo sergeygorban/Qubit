@@ -38,7 +38,7 @@ public class StringToObject {
 
         try {
             return new ObjectMapper().enable(DeserializationFeature.UNWRAP_ROOT_VALUE)
-                    .readerFor(api.getClass()).readValue(response);
+                    .readerFor(api.getClassForResponse()).readValue(response);
 
         } catch (Exception e) {
             throw new RuntimeException(e);
