@@ -29,18 +29,19 @@ public class Driver {
 
         if (props.getProperty("driver").equals("Chrome")) {
             System.setProperty("webdriver.chrome.driver", props.getProperty("chrome_driver_path"));
+
             ChromeOptions options = new ChromeOptions();
+            options.addArguments("start-maximized");
             String pathToProfile = props.getProperty("chromeProfile");
 
             if (pathToProfile != null) {
-                options.setCapability("profile", "--user-data-dir=" + pathToProfile);
+                options.addArguments("profile", "user-data-dir=" + pathToProfile);
             }
             webDriver = new ChromeDriver(options);
 
             if (cookie != null) {
                 webDriver.manage().addCookie(cookie);
             }
-            webDriver.manage().window().maximize();
 
         } else {
             throw new RuntimeException(ErrorMessage.E100.getMessage());
