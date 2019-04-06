@@ -36,20 +36,6 @@ public class Mouse {
     }
 
 
-    // "action" - action for a specific mouse button
-    public static void mouseButton(int action) {
-        WinUser.INPUT input = new WinUser.INPUT();
-
-        input.type = new WinDef.DWORD(WinUser.INPUT.INPUT_MOUSE);
-        input.input.setType("mi");
-
-        input.input.mi.time = new WinDef.DWORD(0);
-        input.input.mi.dwExtraInfo = new BaseTSD.ULONG_PTR(0);
-        input.input.mi.dwFlags = new WinDef.DWORD(action);
-        User32.INSTANCE.SendInput(new WinDef.DWORD(1), new WinUser.INPUT[] { input }, input.size());
-    }
-
-
     // Moves the mouse relative to it's current position.
     public static void moveMouse(int x, int y) {
         WinUser.INPUT input = new WinUser.INPUT();
@@ -66,4 +52,16 @@ public class Mouse {
         User32.INSTANCE.SendInput(new WinDef.DWORD(1), new WinUser.INPUT[] { input }, input.size());
     }
 
+    // "action" - action for a specific mouse button
+    private static void mouseButton(int action) {
+        WinUser.INPUT input = new WinUser.INPUT();
+
+        input.type = new WinDef.DWORD(WinUser.INPUT.INPUT_MOUSE);
+        input.input.setType("mi");
+
+        input.input.mi.time = new WinDef.DWORD(0);
+        input.input.mi.dwExtraInfo = new BaseTSD.ULONG_PTR(0);
+        input.input.mi.dwFlags = new WinDef.DWORD(action);
+        User32.INSTANCE.SendInput(new WinDef.DWORD(1), new WinUser.INPUT[] { input }, input.size());
+    }
 }
