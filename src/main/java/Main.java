@@ -1,13 +1,26 @@
-import javax.mail.*;
-import javax.mail.internet.MimeMessage;
+import jna.Mouse;
+import org.apache.commons.lang3.RandomUtils;
+
+import javax.mail.MessagingException;
 import java.io.IOException;
 import java.security.GeneralSecurityException;
-import java.util.Properties;
+import java.util.stream.Stream;
 
 
 public class Main {
 
     public static void main(String[] args) throws GeneralSecurityException, IOException, MessagingException {
+
+
+        Stream.iterate(0, n -> n + 1).forEach(n -> {
+
+            Mouse.mouseLeftClick();
+            try {
+                Thread.sleep(RandomUtils.nextInt(3000, 8000));
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
 
 
 
