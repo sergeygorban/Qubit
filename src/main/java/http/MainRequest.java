@@ -36,79 +36,21 @@ public class MainRequest {
 
     public String sendRequest(Api api, RequestObject object) {
 
-        if (api.getMethod().name().equals("GET")) {
-            throw new RuntimeException("Method 'GET' is not allowed");
-        }
+        this.connectTimeout = api.getConnectTimeout();
+        this.socketTimeout = api.getConnectTimeout();
 
-        RequestBuilder requestBuilder = RequestBuilder.create(api.getMethod().name());
-        requestBuilder.setConfig(RequestConfig.custom().setConnectTimeout(api.getConnectTimeout())
-                .setSocketTimeout(api.getSocketTimeout()).build())
-                .setUri(api.getUrl());
-        api.getHeaders().forEach(requestBuilder::addHeader);
-
-        HttpClientBuilder httpClientBuilder = HttpClients.custom();
-        BasicCookieStore cookieStore = null;
-
-        if (api.getCoocie() != null) {
-            cookieStore = new BasicCookieStore();
-            cookieStore.addCookie(api.getCoocie());
-            httpClientBuilder.setDefaultCookieStore(cookieStore);
-        }
-
-        String requestObject = object.getRequestObject();
-
-        if (requestObject != null) {
-            requestBuilder.setEntity(new StringEntity(requestObject, api.geCharset()));
-        }
-
-        Map<String, String> parameters = object.getRequestParameters();
-
-        if (parameters != null) {
-            parameters.forEach(requestBuilder::addParameter);
-        }
-
-        if (api.getUrl().startsWith("https")) {
-            try {
-                httpClientBuilder.setSSLContext(new SSLContextBuilder()
-                        .loadTrustMaterial(null, (certificate, authType) -> true).build())
-                        .setSSLHostnameVerifier(new NoopHostnameVerifier());
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
-        }
-
-        HttpUriRequest request = requestBuilder.build();
-
-        logger.info(creatingRequest(request, cookieStore,
-                parameters != null ? parameters.toString() : "", requestObject));
-
-        try (CloseableHttpClient client = httpClientBuilder.build()) {
-
-            CloseableHttpResponse httpResponse = client.execute(request);
-            String response = EntityUtils.toString(httpResponse.getEntity());
-
-            logger.info(creatingResponse(httpResponse, response));
-
-            this.statusCode = httpResponse.getStatusLine().getStatusCode();
-            this.headers = httpResponse.getAllHeaders();
-
-            return response;
-
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-
+        return sendRequest(api.getMethod().name(), api.getUrl(), api.getHeaders(), api.getCoocie(),
+                object.getRequestParameters(), object.getRequestObject());
     }
+
+
+
+
 
     public String sendRequest(String method,
                               String url,
                               Map<String, String> header,
-                              Cookie cookie, Map<String, String> parameters, String requestObject) {
-
-
-        if (method.equals("GET")) {
-            throw new RuntimeException("Method 'GET' is not allowed");
-        }
+                              Cookie cookie, Map<String, Object> parameters, String requestObject) {
 
         RequestBuilder requestBuilder = RequestBuilder.create(method);
         requestBuilder.setConfig(RequestConfig.custom().setConnectTimeout(connectTimeout)
@@ -125,13 +67,29 @@ public class MainRequest {
             httpClientBuilder.setDefaultCookieStore(cookieStore);
         }
 
-        if (requestObject != null) {
-            requestBuilder.setEntity(new StringEntity(requestObject, charset));
+        if (!method.equals("GET")) {
+
+            if (requestObject != null) {
+                requestBuilder.setEntity(new StringEntity(requestObject, charset));
+            }
+
+            if (parameters != null) {
+                parameters.forEach((key, val) -> requestBuilder.addParameter(key, val.toString()));
+            }
+
+        } else {
+
+            if (parameters != null && parameters.entrySet().size() == 1) {
+                requestBuilder.setUri(url + "/" + parameters.values().stream().findFirst().orElse(""));
+
+            } else if (parameters != null){
+                parameters.forEach((key, value) -> requestBuilder.addParameter(key, value.toString()));
+
+            } else {
+                throw new RuntimeException("An error has occurred when GET request is formed");
+            }
         }
 
-        if (parameters != null) {
-            parameters.forEach(requestBuilder::addParameter);
-        }
 
         if (url.startsWith("https")) {
             try {
@@ -163,6 +121,7 @@ public class MainRequest {
             throw new RuntimeException(e);
         }
     }
+
 
     private String creatingRequest(HttpUriRequest request, BasicCookieStore cookieStore, String parameters, String jsonObject) {
 

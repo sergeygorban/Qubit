@@ -5,5 +5,5 @@ import java.util.Map;
 public interface RequestObject {
 
     String getRequestObject();
-    Map<String, String> getRequestParameters();
+    Map<String, Object> getRequestParameters();
 }
