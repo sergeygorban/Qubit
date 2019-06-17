@@ -1,10 +1,10 @@
 package file;
 
-import excel.Api;
 import com.sun.jna.platform.win32.BaseTSD;
 import com.sun.jna.platform.win32.User32;
 import com.sun.jna.platform.win32.WinDef;
 import com.sun.jna.platform.win32.WinUser;
+import excel.Api;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
@@ -15,12 +15,23 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
+import java.util.stream.Collectors;
 
 
 /**
  * Created by Admin on 17.04.2018.
  */
 public class Files {
+
+    public List<Path> getAllFilesFromDir(String directory) {
+
+        try {
+            return java.nio.file.Files.list(Paths.get(directory)).collect(Collectors.toList());
+        } catch (Throwable e) {
+            throw new RuntimeException(e.getMessage());
+        }
+    }
 
     public static Path getIncomingDataForApi(Api api) {
 

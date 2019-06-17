@@ -16,7 +16,7 @@ public class Main {
 
             Mouse.mouseLeftClick();
             try {
-                Thread.sleep(RandomUtils.nextInt(3000, 8000));
+                Thread.sleep(RandomUtils.nextInt(7000, 10000));
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
