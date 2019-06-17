@@ -33,7 +33,7 @@ public class Files {
         }
     }
 
-    public static Path getIncomingDataForApi(Api api) {
+    public Path getIncomingDataForApi(Api api) {
 
         try {
             return java.nio.file.Files.list(Paths.get(api.STORAGE))
@@ -55,7 +55,7 @@ public class Files {
     }
 
     // Termination of the process
-    public static void closeExcel() {
+    public  void closeExcel() {
 
         try {
             Runtime.getRuntime().exec("cmd /c taskkill /f /im excel.exe");
@@ -67,7 +67,7 @@ public class Files {
 
     }
 
-    public static Workbook readingFileExcel(Path pathToFile) {
+    public Workbook readingFileExcel(Path pathToFile) {
 
         try(InputStream inputStream = java.nio.file.Files.newInputStream(pathToFile)) {
 
@@ -78,7 +78,7 @@ public class Files {
         }
     }
 
-    public static String writingFileExcel(String pathToFile, Workbook workbook) {
+    public String writingFileExcel(String pathToFile, Workbook workbook) {
 
         try(FileOutputStream outputStream = new FileOutputStream(pathToFile)) {
 
@@ -91,7 +91,7 @@ public class Files {
         }
     }
 
-    public static Path writingFileExcel(Path pathToFile, Workbook workbook) {
+    public Path writingFileExcel(Path pathToFile, Workbook workbook) {
 
         try(OutputStream outputStream = new FileOutputStream(pathToFile.toFile())) {
 
@@ -104,7 +104,7 @@ public class Files {
         }
     }
 
-    public static Path createNewFileExcel(Api api, Workbook workbook) {
+    public Path createNewFileExcel(Api api, Workbook workbook) {
 
         String pathToFile = api.STORAGE + "\\" +  api.dataFile + "_"
                 +  LocalDateTime.now().format(DateTimeFormatter.ofPattern("y-MM-dd_HH-mm-ss")) + ".xlsx";
@@ -120,7 +120,7 @@ public class Files {
     }
 
     // Closing the application window
-    public static void closingApplicationWindow (String windowTitle) {
+    public  void closingApplicationWindow (String windowTitle) {
 
         try {
 

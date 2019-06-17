@@ -4,7 +4,6 @@ import creating_object.ValueForJson;
 import file.Files;
 import org.apache.poi.ss.usermodel.*;
 
-import java.io.IOException;
 import java.nio.file.Path;
 import java.util.Comparator;
 import java.util.LinkedHashMap;
@@ -32,14 +31,14 @@ public class RequestFromExcel {
     public static void sendRequest(Api api) {
 
         // Reading file
-        Path file = Files.getIncomingDataForApi(api);
+        Path file = new Files().getIncomingDataForApi(api);
 
         // Closing a file, if one is already opened
         String windowTitle = "Microsoft Excel - " + file.getFileName().toString();
-        Files.closingApplicationWindow(windowTitle);
+        new Files().closingApplicationWindow(windowTitle);
 
 
-        Workbook workbook = Files.readingFileExcel(file);
+        Workbook workbook = new Files().readingFileExcel(file);
         Sheet sheet = workbook.getSheet(api.dataSheet);
 
         if (sheet == null) {
@@ -166,12 +165,12 @@ public class RequestFromExcel {
 
         if (NEW_FILE) {
 
-            file = Files.createNewFileExcel(api, workbook);
+            file = new Files().createNewFileExcel(api, workbook);
             Files.openFile(file);
 
         } else {
 
-            Files.openFile(Files.writingFileExcel(file, workbook));
+            Files.openFile(new Files().writingFileExcel(file, workbook));
         }
 
         if (SEND_EMAIL) {
