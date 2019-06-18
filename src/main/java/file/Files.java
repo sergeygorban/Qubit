@@ -9,6 +9,7 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.file.Path;
@@ -16,6 +17,7 @@ import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 
@@ -31,6 +33,20 @@ public class Files {
         } catch (Throwable e) {
             throw new RuntimeException(e.getMessage());
         }
+    }
+
+    public void deleteAllFilesInDir(String directory) {
+
+        getAllFilesFromDir(directory).stream()
+                .filter(Objects::nonNull)
+                .forEach(file -> {
+                    try {
+                        java.nio.file.Files.delete(file);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                });
+
     }
 
     public Path getIncomingDataForApi(Api api) {
@@ -55,7 +71,7 @@ public class Files {
     }
 
     // Termination of the process
-    public  void closeExcel() {
+    public void closeExcel() {
 
         try {
             Runtime.getRuntime().exec("cmd /c taskkill /f /im excel.exe");
