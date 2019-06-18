@@ -1,0 +1,2 @@
+1. Creating jar with dependencies
+        mvn clean package
