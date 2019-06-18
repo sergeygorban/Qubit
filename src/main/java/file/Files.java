@@ -41,7 +41,7 @@ public class Files {
                 .filter(Objects::nonNull)
                 .forEach(file -> {
                     try {
-                        java.nio.file.Files.delete(file);
+                        java.nio.file.Files.delete(file.toAbsolutePath());
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
