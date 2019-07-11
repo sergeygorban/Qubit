@@ -1,5 +1,7 @@
 package http;
 
+import lombok.extern.java.Log;
+import lombok.extern.log4j.Log4j;
 import org.apache.http.Header;
 import org.apache.http.HeaderElement;
 import org.apache.http.client.config.RequestConfig;
@@ -22,9 +24,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Map;
 
+@Log
 public class MainRequest {
 
-    private final Logger logger = LogManager.getLogger(this);
+    //private final Logger logger = LogManager.getLogger(this);
 
     private int statusCode;
     private Header[] headers;
@@ -102,15 +105,18 @@ public class MainRequest {
         }
 
         HttpUriRequest request = requestBuilder.build();
-        logger.info(creatingRequest(request, cookieStore,
+        log.info(creatingRequest(request, cookieStore,
                 parameters != null ? parameters.toString() : "", requestObject));
+        /*logger.info(creatingRequest(request, cookieStore,
+                parameters != null ? parameters.toString() : "", requestObject));*/
 
         try (CloseableHttpClient client = httpClientBuilder.build()) {
 
             CloseableHttpResponse httpResponse = client.execute(request);
             String response = EntityUtils.toString(httpResponse.getEntity());
 
-            logger.info(creatingResponse(httpResponse, response));
+            log.info(creatingResponse(httpResponse, response));
+            //logger.info(creatingResponse(httpResponse, response));
 
             this.statusCode = httpResponse.getStatusLine().getStatusCode();
             this.headers = httpResponse.getAllHeaders();
