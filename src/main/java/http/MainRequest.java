@@ -39,7 +39,7 @@ public class MainRequest {
         this.connectTimeout = api.getConnectTimeout();
         this.socketTimeout = api.getConnectTimeout();
 
-        return sendRequest(api.getMethod().name(), api.getUrl(), api.getHeaders(), api.getCoocie(),
+        return sendRequest(api.getMethod().name(), api.getUrl(), api.getHeaders(), api.getCookie(),
                 object.getRequestParameters(), object.getRequestObject());
     }
 

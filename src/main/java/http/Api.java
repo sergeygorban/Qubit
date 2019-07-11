@@ -8,7 +8,6 @@ public interface Api {
     Method getMethod();
     String getUrl();
     Map<String, String> getHeaders();
-    Cookie getCookie();
     Class getClassForResponse();
 
     default long getWaiting() {
@@ -22,6 +21,10 @@ public interface Api {
     };
     default int getSocketTimeout() {
         return 8000;
+    };
+
+    default Cookie getCookie() {
+        return null;
     };
 
     static void expect(long seconds) {
