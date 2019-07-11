@@ -8,7 +8,7 @@ public interface Api {
     Method getMethod();
     String getUrl();
     Map<String, String> getHeaders();
-    Cookie getCoocie();
+    Cookie getCookie();
     Class getClassForResponse();
 
     default long getWaiting() {
