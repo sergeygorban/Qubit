@@ -1,5 +1,6 @@
 package http;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import lombok.extern.java.Log;
 import lombok.extern.log4j.Log4j;
 import org.apache.http.Header;
@@ -44,6 +45,16 @@ public class MainRequest {
 
         return sendRequest(api.getMethod().name(), api.getUrl(), api.getHeaders(), api.getCookie(),
                 object.getRequestParameters(), object.getRequestObject());
+    }
+
+
+    public String sendRequest(Api api, JsonNode object) {
+
+        this.connectTimeout = api.getConnectTimeout();
+        this.socketTimeout = api.getConnectTimeout();
+
+        return sendRequest(api.getMethod().name(), api.getUrl(), api.getHeaders(), api.getCookie(),
+                null, object.toString());
     }
 
 
