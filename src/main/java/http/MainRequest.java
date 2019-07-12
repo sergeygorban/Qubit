@@ -48,19 +48,6 @@ public class MainRequest {
     }
 
 
-    public String sendRequest(Api api, JsonNode object) {
-
-        this.connectTimeout = api.getConnectTimeout();
-        this.socketTimeout = api.getConnectTimeout();
-
-        return sendRequest(api.getMethod().name(), api.getUrl(), api.getHeaders(), api.getCookie(),
-                null, object.toString());
-    }
-
-
-
-
-
     public String sendRequest(String method,
                               String url,
                               Map<String, String> header,
