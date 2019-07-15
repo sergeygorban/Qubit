@@ -11,7 +11,7 @@ public class JsonValues {
     // Return json with changed value
     // Key: or "/fundingAccountInfo/encryptedPayload/encryptedData/TokenData" or "expiryMonth"
 
-    public String changeValue(String key, String value, Object object) {
+    public String changeValue(String key, Object value, Object object) {
 
         JsonNode newNode = new ObjectMapper().convertValue(value, JsonNode.class);
         ObjectNode objectNode = new ObjectMapper().valueToTree(object);
