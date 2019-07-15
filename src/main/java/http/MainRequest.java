@@ -48,13 +48,13 @@ public class MainRequest {
     }
 
 
-    public String sendRequest(Api api, JsonNode object) {
+    public String sendRequest(Api api, String json) {
 
         this.connectTimeout = api.getConnectTimeout();
         this.socketTimeout = api.getConnectTimeout();
 
         return sendRequest(api.getMethod().name(), api.getUrl(), api.getHeaders(), api.getCookie(),
-                null, object.toString());
+                null, json);
     }
 
     public String sendRequest(String method,
