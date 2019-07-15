@@ -33,7 +33,7 @@ public class JsonValues {
     }
 
     // Return json with deleted parameter
-    public String removeParameter(String key, Object object) {
+    public String removeKey(String key, Object object) {
 
         ObjectNode objectNode = new ObjectMapper().valueToTree(object);
 
