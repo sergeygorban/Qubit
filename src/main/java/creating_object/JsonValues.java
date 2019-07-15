@@ -11,6 +11,7 @@ public class JsonValues {
     public JsonNode changeValue(String parameter, String value, Object object) {
 
         ObjectNode objectNode = new ObjectMapper().valueToTree(object);
-        return objectNode.findParent(parameter).set(parameter, value == null ? null : new TextNode(value));
+        objectNode.findParent(parameter).set(parameter, value == null ? null : new TextNode(value));
+        return objectNode;
     }
 }
