@@ -14,4 +14,11 @@ public class JsonValues {
         objectNode.findParent(parameter).set(parameter, value == null ? null : new TextNode(value));
         return objectNode;
     }
+
+    public JsonNode removeParameterAndValue(String parameter, Object object) {
+
+        ObjectNode objectNode = new ObjectMapper().valueToTree(object);
+        objectNode.findParent(parameter).remove(parameter);
+        return objectNode;
+    }
 }
