@@ -23,11 +23,11 @@ public class JsonValues {
             objectNode.at(parentParam).findParent(param).fields().forEachRemaining(p -> {
 
                 if (p.getKey().equals(param)) {
-                    p.setValue(value == null ? null : newNode);
+                    p.setValue(newNode);
                 }
             });
         } else {
-            objectNode.findParent(key).set(key, value == null ? null : newNode);        }
+            objectNode.findParent(key).set(key, newNode);        }
 
         return objectNode.toString();
     }
