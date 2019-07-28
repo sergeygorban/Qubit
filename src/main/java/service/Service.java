@@ -13,7 +13,7 @@ public class Service {
         }
     }
 
-    private void startWindowsService(String serviceName) {
+    public void startWindowsService(String serviceName) {
 
         String[] command = {"cmd.exe", "/c", "sc", "start", serviceName};
         try {
@@ -24,7 +24,7 @@ public class Service {
         }
     }
 
-    private void stopWindowsService(String serviceName) {
+    public void stopWindowsService(String serviceName) {
 
         String[] command = {"cmd.exe", "/c", "sc", "stop", serviceName};
         try {
@@ -35,7 +35,7 @@ public class Service {
         }
     }
 
-    private int getWindowsServiceStatus(String serviceName) {
+    public int getWindowsServiceStatus(String serviceName) {
 
         String[] command = {"cmd.exe", "/c", "sc", "query", serviceName, "|", "find", "/C", "\"RUNNING\""};
         try {
@@ -48,7 +48,7 @@ public class Service {
         }
     }
 
-    private boolean getWindowsProcess(String processName) {
+    public boolean getWindowsProcess(String processName) {
         return ProcessHandle.allProcesses()
                 .anyMatch(info -> info.info().command().filter(str -> str.contains(processName)).isPresent());
     }
