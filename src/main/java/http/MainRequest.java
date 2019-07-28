@@ -1,8 +1,6 @@
 package http;
 
-import com.fasterxml.jackson.databind.JsonNode;
 import lombok.extern.java.Log;
-import lombok.extern.log4j.Log4j;
 import org.apache.http.Header;
 import org.apache.http.HeaderElement;
 import org.apache.http.client.config.RequestConfig;
@@ -18,17 +16,12 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.ssl.SSLContextBuilder;
 import org.apache.http.util.EntityUtils;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Map;
 
 @Log
 public class MainRequest {
-
-    //private final Logger logger = LogManager.getLogger(this);
 
     private int statusCode;
     private Header[] headers;
@@ -112,10 +105,7 @@ public class MainRequest {
         }
 
         HttpUriRequest request = requestBuilder.build();
-        log.info(creatingRequest(request, cookieStore,
-                parameters != null ? parameters.toString() : "", requestObject));
-        /*logger.info(creatingRequest(request, cookieStore,
-                parameters != null ? parameters.toString() : "", requestObject));*/
+        log.info(creatingRequest(request, cookieStore, parameters != null ? parameters.toString() : "", requestObject));
 
         try (CloseableHttpClient client = httpClientBuilder.build()) {
 
@@ -123,7 +113,6 @@ public class MainRequest {
             String response = EntityUtils.toString(httpResponse.getEntity());
 
             log.info(creatingResponse(httpResponse, response));
-            //logger.info(creatingResponse(httpResponse, response));
 
             this.statusCode = httpResponse.getStatusLine().getStatusCode();
             this.headers = httpResponse.getAllHeaders();
