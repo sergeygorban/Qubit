@@ -13,23 +13,35 @@ public class Service {
         }
     }
 
+    // If for starting windows service is needed admin rights then start IDE as administrator
     public void startWindowsService(String serviceName) {
 
         String[] command = {"cmd.exe", "/c", "sc", "start", serviceName};
         try {
             Runtime.getRuntime().exec(command);
-            log.info(serviceName + " service is started");
+
+            if(getWindowsServiceStatus(serviceName) == 1) {
+                log.info(serviceName + " service is started");
+            } else {
+                log.info(serviceName + " service is not started");
+            }
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
 
+    // If for starting windows service is needed admin rights then start IDE as administrator
     public void stopWindowsService(String serviceName) {
 
         String[] command = {"cmd.exe", "/c", "sc", "stop", serviceName};
         try {
             Runtime.getRuntime().exec(command);
-            log.info(serviceName + " service is stopped");
+
+            if(getWindowsServiceStatus(serviceName) == 0) {
+                log.info(serviceName + " service is stoped");
+            } else {
+                log.info(serviceName + " service is not stoped");
+            }
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -48,6 +60,7 @@ public class Service {
         }
     }
 
+    // Return true if process or service are started
     public boolean getWindowsProcess(String processName) {
         return ProcessHandle.allProcesses()
                 .anyMatch(info -> info.info().command().filter(str -> str.contains(processName)).isPresent());
