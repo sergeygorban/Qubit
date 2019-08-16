@@ -5,6 +5,7 @@ import com.sun.jna.platform.win32.User32;
 import com.sun.jna.platform.win32.WinDef;
 import com.sun.jna.platform.win32.WinUser;
 import excel.Api;
+import lombok.extern.java.Log;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
@@ -24,6 +25,8 @@ import java.util.stream.Collectors;
 /**
  * Created by Admin on 17.04.2018.
  */
+
+@Log
 public class Files {
 
     public List<Path> getAllFilesFromDir(String directory) {
@@ -132,6 +135,16 @@ public class Files {
 
         } catch (Exception e) {
             throw new  RuntimeException(e.getMessage());
+        }
+    }
+
+    // Create InputStream from file
+    public InputStream createInputStreamFromFile(String path) {
+
+        try {
+            return java.nio.file.Files.newInputStream(Paths.get(path));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
