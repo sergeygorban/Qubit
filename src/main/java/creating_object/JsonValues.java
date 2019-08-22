@@ -48,4 +48,8 @@ public class JsonValues {
             return objectNode.findParent(key).remove(key).toString();
         }
     }
+
+    public static void main(String[] args) {
+
+    }
 }
