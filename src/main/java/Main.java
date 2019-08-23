@@ -1,3 +1,6 @@
+import com.sun.jna.platform.win32.W32Service;
+import com.sun.jna.platform.win32.W32ServiceManager;
+import com.sun.jna.platform.win32.Winsvc;
 import jna.Mouse;
 import org.apache.commons.lang3.RandomUtils;
 
@@ -11,8 +14,38 @@ public class Main {
 
     public static void main(String[] args) throws GeneralSecurityException, IOException, MessagingException {
 
+        /*try
+        {
+            W32ServiceManager serviceManager = new W32ServiceManager();
+            serviceManager.open(Winsvc.SC_MANAGER_ALL_ACCESS);
+            W32Service service = serviceManager.openService("OpenAlpr Agent", Winsvc.SC_MANAGER_ALL_ACCESS);
+            service.startService();
+            service.close();
+        } catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }*/
 
-        Stream.iterate(0, n -> n + 1).forEach(n -> {
+        /*String[] command = {"cmd.exe", "/c", "sc", "query", "OpenAlpr Agent", "|", "find", "/C", "\"RUNNING\""};
+        try {
+            Process process = Runtime.getRuntime().exec(command);
+            int status = Integer.parseInt(new String(process.getInputStream().readAllBytes()).trim());
+            System.out.println(status);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }*/
+
+        String[] command1 = {"cmd.exe", "/c", "sc", "start", "OpenAlpr Agent"};
+        try {
+            Runtime.getRuntime().exec(command1);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+
+
+
+        /*Stream.iterate(0, n -> n + 1).forEach(n -> {
 
             Mouse.mouseLeftClick();
             try {
@@ -20,7 +53,11 @@ public class Main {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-        });
+        });*/
+
+
+
+
 
 
 
@@ -206,17 +243,5 @@ public class Main {
         gmail.users().messages().send("me", message).execute();
 
         dzgdfhg*/
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
