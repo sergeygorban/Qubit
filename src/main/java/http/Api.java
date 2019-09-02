@@ -7,6 +7,7 @@ public interface Api {
 
     Method getMethod();
     String getUrl();
+    void setUrl(String url);
     Map<String, String> getHeaders();
     Class getClassForResponse();
 
