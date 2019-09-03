@@ -21,7 +21,7 @@ public class Connections {
     }
 
 
-    private Connection createPostgreConnection(Properties props) {
+    public Connection createPostgreConnection(Properties props) {
 
         try {
 
