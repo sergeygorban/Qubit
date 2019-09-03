@@ -8,6 +8,12 @@ public interface RequestObject {
     Map<String, Object> getRequestParameters();
 
     // For encrypting data inside а request object
-    void encryptData();
+    default void encryptData(Object obj) {
+
+    };
+    default void encryptData() {
+
+    };
+
 
 }
