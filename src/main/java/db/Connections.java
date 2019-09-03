@@ -19,4 +19,21 @@ public class Connections {
             throw new RuntimeException(e);
         }
     }
+
+
+    private Connection createPostgreConnection(Properties props) {
+
+        try {
+
+            //DriverManager.setLogWriter(new PrintWriter((System.err)));
+
+            return DriverManager.getConnection("jdbc:postgresql://" + props.getProperty("host") + ":"
+                            + props.getProperty("port") + "/" + props.getProperty("db"),
+                    props.getProperty("username"),
+                    props.getProperty("password"));
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
