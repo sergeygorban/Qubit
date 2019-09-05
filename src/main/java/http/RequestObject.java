@@ -5,7 +5,9 @@ import java.util.Map;
 public interface RequestObject {
 
     String getRequestObject();
-    Map<String, Object> getRequestParameters();
+    default Map<String, Object> getRequestParameters() {
+        return null;
+    };
 
     // For encrypting data inside а request object
     default Object encryptDataAsObject(){
