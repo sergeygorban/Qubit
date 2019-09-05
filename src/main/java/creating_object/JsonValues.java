@@ -13,25 +13,26 @@ public class JsonValues {
     // Key: or "/fundingAccountInfo/encryptedPayload/encryptedData/TokenData" or "expiryMonth"
     // It is used for the value change of the parameters with value Object
 
-    public String changeValue(String key, Object value, Object object) {
+    public String changeValue(String jsonPath, Object value, Object object) {
 
         JsonNode newNode = new ObjectMapper().convertValue(value, JsonNode.class);
         ObjectNode objectNode = new ObjectMapper().valueToTree(object);
 
-        if (key.contains("/")) {
+        if (jsonPath.contains("/")) {
 
-            String parentParam = key.substring(0, key.lastIndexOf("/"));
-            String param = key.substring(key.lastIndexOf("/") + 1);
-            objectNode.at(parentParam).findParent(param).fields().forEachRemaining(p -> {
+            String parentPath = jsonPath.substring(0, jsonPath.lastIndexOf("/"));
+            String param = jsonPath.substring(jsonPath.lastIndexOf("/") + 1);
 
-                if (p.getKey().equals(param)) {
-                    p.setValue(newNode);
+            objectNode.at(parentPath).fields().forEachRemaining(keyValue -> {
+                if (keyValue.getKey().equals(param)) {
+                    keyValue.setValue(newNode);
                 }
             });
-        } else {
-            objectNode.findParent(key).set(key, newNode);        }
 
-        return objectNode.toString();
+            return objectNode.toString();
+        }
+
+        return objectNode.findParent(jsonPath).set(jsonPath, newNode).toString();
     }
 
     // Return json with deleted parameter
