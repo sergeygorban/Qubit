@@ -23,10 +23,12 @@ public interface Api {
     default int getSocketTimeout() {
         return 8000;
     };
-
     default Cookie getCookie() {
         return null;
     };
+    default String getValueFromUrl() {
+        return null;
+    }
 
     static void expect(long seconds) {
 
