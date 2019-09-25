@@ -26,7 +26,7 @@ public interface Api {
     default Cookie getCookie() {
         return null;
     };
-    default Map<String, Object> getValuesFromUrl() {
+    default Map<String, ?> getValuesFromUrl() {
         return null;
     }
 
