@@ -34,7 +34,7 @@ public class MainRequest {
     public String sendRequest(Api api, RequestObject object) {
 
         this.connectTimeout = api.getConnectTimeout();
-        this.socketTimeout = api.getConnectTimeout();
+        this.socketTimeout = api.getSocketTimeout();
 
         return sendRequest(api.getMethod().name(), api.getUrl(), api.getHeaders(), api.getCookie(),
                 object.getRequestParameters(), object.getRequestObject());
@@ -44,7 +44,7 @@ public class MainRequest {
     public String sendRequest(Api api, String json) {
 
         this.connectTimeout = api.getConnectTimeout();
-        this.socketTimeout = api.getConnectTimeout();
+        this.socketTimeout = api.getSocketTimeout();
 
         return sendRequest(api.getMethod().name(), api.getUrl(), api.getHeaders(), api.getCookie(),
                 null, json);
