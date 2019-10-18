@@ -15,10 +15,13 @@ public class Time {
 
     public static void main(String[] args) {
 
-        long a = new Time().getAmountDaysBetweenTwoDates(LocalDate.now(), LocalDate.parse("2019-10-14",
+        System.out.println(LocalDate.now().minusDays(5));
+
+        long a = new Time().getAmountDaysBetweenTwoDates(LocalDate.now(), LocalDate.parse("2019-10-09",
                 DateTimeFormatter.ofPattern("yyyy-MM-dd")));
 
-        if (a > 0 && a <= 2) {
+        System.out.println(a);
+        if (a >= 1) {
             System.out.println(a);
         }
     }
