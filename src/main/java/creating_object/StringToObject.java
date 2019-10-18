@@ -62,6 +62,20 @@ public class StringToObject {
         return null;
     }
 
+    public <T> T createResponseObjFromXml(String response, Api api){
+
+        if (response != null && !response.isEmpty()) {
+            try {
+                return (T) new XmlMapper().readValue(response, api.getClassForResponse());
+
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+        return null;
+    }
+
 
 
 
