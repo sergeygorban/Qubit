@@ -2,6 +2,7 @@ package time;
 
 import java.time.Duration;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class Time {
@@ -12,12 +13,17 @@ public class Time {
 
     }
 
+    public Duration getDurationBetweenTwoDates(LocalDateTime firstDate, LocalDateTime secondDate) {
+        return Duration.between(firstDate, secondDate);
+
+    }
+
 
     public static void main(String[] args) {
 
         System.out.println(LocalDate.now().minusDays(5));
 
-        long a = new Time().getAmountDaysBetweenTwoDates(LocalDate.now(), LocalDate.parse("2019-10-09",
+        long a = new Time().getAmountDaysBetweenTwoDates(LocalDate.now(), LocalDate.parse("2019-10-30",
                 DateTimeFormatter.ofPattern("yyyy-MM-dd")));
 
         System.out.println(a);
