@@ -1,6 +1,11 @@
 package service;
 import lombok.extern.java.Log;
 
+import java.io.IOException;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicReference;
+import java.util.stream.Stream;
+
 @Log
 public class Service {
 
@@ -66,4 +71,30 @@ public class Service {
                 .anyMatch(info -> info.info().command().filter(str -> str.contains(processName)).isPresent());
     }
 
+    // Running maven commands
+    public void runMavenCommand(String command) {
+
+        String[] commands = {"cmd.exe", "/c", "mvn " + command};
+
+        try {
+            AtomicReference<Process> atomicReference = new AtomicReference<>();
+            atomicReference.set(Runtime.getRuntime().exec(commands));
+
+            Stream.generate(() -> {
+                try {
+                    return atomicReference.get().waitFor(10, TimeUnit.SECONDS);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException("!!!! Error !!!!");
+                }
+            })
+                    .limit(10)
+                    .takeWhile(a -> a)
+                    .findFirst()
+                    .orElseThrow();
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
