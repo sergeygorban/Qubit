@@ -9,9 +9,16 @@ public class Time {
 
 
     public long getAmountDaysBetweenTwoDates(LocalDate firstDate, LocalDate secondDate) {
+
         return Duration.between(firstDate.atStartOfDay(), secondDate.atStartOfDay()).toDays();
 
     }
+
+    public int getAmountDaysForSqlServer(LocalDate date) {
+        return (int) Duration.between(LocalDate.parse("1900-01-01").atStartOfDay(), date.atStartOfDay()).toDays();
+
+    }
+
 
     public Duration getDurationBetweenTwoDates(LocalDateTime firstDate, LocalDateTime secondDate) {
         return Duration.between(firstDate, secondDate);
@@ -20,6 +27,8 @@ public class Time {
 
 
     public static void main(String[] args) {
+
+        System.out.println(new Time().getAmountDaysForSqlServer(LocalDate.now()));
 
         System.out.println(LocalDate.now().minusDays(5));
 
@@ -31,4 +40,5 @@ public class Time {
             System.out.println(a);
         }
     }
+
 }
