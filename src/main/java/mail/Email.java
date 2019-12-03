@@ -20,9 +20,8 @@ public class Email {
 
     public List<Message> getAllMessages() {
 
-        //Create the folder object
         try {
-            this.emailFolder = store.getFolder("INBOX");
+            emailFolder = store.getFolder("INBOX");
             emailFolder.open(Folder.READ_WRITE);
             return Arrays.stream(emailFolder.getMessages()).collect(Collectors.toList());
 
@@ -56,8 +55,6 @@ public class Email {
         properties.put("mail.pop3.startssl.enable", "true");
         Session emailSession = Session.getDefaultInstance(properties);
 
-        //create the POP3 store object and connect with the pop server
-        Store store = null;
         try {
             store = emailSession.getStore("imap");
             store.connect("imap.ukr.net", email, password);
