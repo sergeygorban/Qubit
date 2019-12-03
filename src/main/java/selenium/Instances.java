@@ -20,12 +20,4 @@ public enum Instances {
         this.userProperties = Props.builder().fileName("users.properties").build().getProps();
         this.webDriver = Driver.builder().props(propsProperties).build().getWebDriver();
     }
-
-    /*private Properties getPropsProperties() {
-
-        if (propsProperties == null) {
-            return this.propsProperties = Props.builder().fileName("props.properties").build().getProps();
-        }
-        return this.propsProperties;
-    }*/
 }

@@ -1,10 +1,7 @@
-import jna.Mouse;
-import org.apache.commons.lang3.RandomUtils;
-
-import javax.mail.MessagingException;
+import javax.mail.*;
 import java.io.IOException;
 import java.security.GeneralSecurityException;
-import java.util.stream.Stream;
+import java.util.Properties;
 
 
 public class Main {
@@ -12,7 +9,7 @@ public class Main {
     public static void main(String[] args) throws GeneralSecurityException, IOException, MessagingException {
 
 
-        Stream.iterate(0, n -> n + 1).forEach(n -> {
+        /*Stream.iterate(0, n -> n + 1).forEach(n -> {
 
             Mouse.mouseLeftClick();
             try {
@@ -20,7 +17,7 @@ public class Main {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-        });
+        });*/
 
 
 
@@ -66,9 +63,12 @@ public class Main {
 */
 
 
-/*        // Укр нет
+        // Укр нет
 
-        try { properties.put("mail.pop3.host", "imap.ukr.net");
+        try {
+
+        Properties properties = new Properties();
+        properties.put("mail.pop3.host", "imap.ukr.net");
         properties.put("mail.pop3.port", "993");
         properties.put("mail.pop3.startssl.enable", "true");
         Session emailSession = Session.getDefaultInstance(properties);
@@ -100,13 +100,9 @@ public class Main {
         emailFolder.close(false);
         store.close();
 
-    } catch (NoSuchProviderException e) {
-        e.printStackTrace();
-    } catch (MessagingException e) {
-        e.printStackTrace();
     } catch (Exception e) {
         e.printStackTrace();
-    }*/
+    }
 
 
      /*   try {
