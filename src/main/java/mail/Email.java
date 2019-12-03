@@ -31,17 +31,18 @@ public class Email {
     }
 
     public void deleteAllMessages() {
-
-        getAllMessages().forEach(message -> {
-
-            try {
-                message.setFlag(Flags.Flag.DELETED, true);
-                emailFolder.close(true);
-
-            } catch (Exception e) {
-                throw new RuntimeException(e.getMessage());
-            }
-        });
+        try {
+            getAllMessages().forEach(message -> {
+                try {
+                    message.setFlag(Flags.Flag.DELETED, true);
+                } catch (Exception e) {
+                    throw new RuntimeException(e.getMessage());
+                }
+            });
+            emailFolder.close(true);
+        } catch (Exception e) {
+            throw new RuntimeException(e.getMessage());
+        }
     }
 
 
