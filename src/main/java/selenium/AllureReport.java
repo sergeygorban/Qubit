@@ -3,7 +3,7 @@ package selenium;
 import io.qameta.allure.Attachment;
 import io.qameta.allure.Step;
 
-public class Allure {
+public class AllureReport {
 
     // Adding step in the different place
     @Step("{0}")

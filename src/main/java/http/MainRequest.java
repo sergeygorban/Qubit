@@ -121,8 +121,8 @@ public class MainRequest {
 
             this.statusCode = httpResponse.getStatusLine().getStatusCode();
             this.headers = httpResponse.getAllHeaders();
-            this.response = response;
-            log.info(creatingResponse(httpResponse, response));
+            this.response = creatingResponse(httpResponse, response);
+            log.info(this.response);
             return response;
 
         } catch (Exception e) {
