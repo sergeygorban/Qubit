@@ -1,6 +1,7 @@
 package http;
 
 import io.qameta.allure.Attachment;
+import lombok.Getter;
 import lombok.extern.java.Log;
 import org.apache.http.Header;
 import org.apache.http.HeaderElement;
@@ -17,17 +18,19 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.ssl.SSLContextBuilder;
 import org.apache.http.util.EntityUtils;
-import selenium.Page;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Map;
 
 @Log
+@Getter
 public class MainRequest {
 
     private int statusCode;
     private Header[] headers;
+    private String request;
+    private String response;
 
     private int connectTimeout = 12000;
     private int socketTimeout = 12000;
@@ -108,19 +111,18 @@ public class MainRequest {
         }
 
         HttpUriRequest request = requestBuilder.build();
-        //log.info(creatingRequest(request, cookieStore, parameters != null ? parameters.toString() : "", requestObject));
-        addingMessageToReport(creatingRequest(request, cookieStore, parameters != null ? parameters.toString() : "", requestObject));
+        this.request = creatingRequest(request, cookieStore, parameters != null ? parameters.toString() : "", requestObject);
+        log.info(this.request);
 
         try (CloseableHttpClient client = httpClientBuilder.build()) {
 
             CloseableHttpResponse httpResponse = client.execute(request);
             String response = EntityUtils.toString(httpResponse.getEntity());
 
-            log.info(creatingResponse(httpResponse, response));
-
             this.statusCode = httpResponse.getStatusLine().getStatusCode();
             this.headers = httpResponse.getAllHeaders();
-
+            this.response = response;
+            log.info(creatingResponse(httpResponse, response));
             return response;
 
         } catch (Exception e) {
@@ -152,10 +154,6 @@ public class MainRequest {
                 .append("\n").append(entity).append("\n").toString();
     }
 
-    public int getResponseCode() {
-        return statusCode;
-    }
-
     public String getCookieValue(String cookieName) {
 
         return Arrays.stream(headers)
@@ -165,11 +163,5 @@ public class MainRequest {
                 .map(HeaderElement::getValue)
                 .findFirst()
                 .orElse("No cookies found");
-    }
-
-    // Adding message to Allure report
-    @Attachment(value = "Message", type = "text/plain")
-    private String addingMessageToReport(String message) {
-        return message;
     }
 }
