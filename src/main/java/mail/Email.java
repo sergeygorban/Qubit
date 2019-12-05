@@ -3,10 +3,13 @@ package mail;
 import lombok.Builder;
 
 import javax.mail.*;
+import java.time.Duration;
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Properties;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Email {
 
@@ -43,6 +46,18 @@ public class Email {
         } catch (Exception e) {
             throw new RuntimeException(e.getMessage());
         }
+    }
+
+
+    public boolean isMessageReceived() {
+
+        LocalDateTime start = LocalDateTime.now();
+        Stream.generate(this::getAllMessages)
+                .takeWhile(list -> list.size() == 0 )
+                .takeWhile(webElement -> Duration.between(start, LocalDateTime.now()).toSeconds() < 180)
+                .forEach(webElement -> {});
+
+        return getAllMessages().size() > 0;
     }
 
 
