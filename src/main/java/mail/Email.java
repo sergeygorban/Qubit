@@ -1,6 +1,7 @@
 package mail;
 
 import lombok.Builder;
+import lombok.extern.java.Log;
 
 import javax.mail.*;
 import java.time.Duration;
@@ -11,6 +12,7 @@ import java.util.Properties;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+@Log
 public class Email {
 
     private Store store;
@@ -55,7 +57,7 @@ public class Email {
         Stream.generate(this::getAllMessages)
                 .peek(messages -> {
                     try {
-                        Thread.sleep(10000);
+                        Thread.sleep(5000);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -74,7 +76,8 @@ public class Email {
         Stream.generate(this::getAllMessages)
                 .peek(messages -> {
                     try {
-                        Thread.sleep(10000);
+                        Thread.sleep(5000);
+                        log.info("Waiting letter");
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
