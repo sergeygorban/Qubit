@@ -26,6 +26,7 @@ public class Email {
     public List<Message> getAllMessages() {
 
         try {
+            log.info("Getting all letters");
             emailFolder = store.getFolder("INBOX");
             emailFolder.open(Folder.READ_WRITE);
             return Arrays.stream(emailFolder.getMessages()).collect(Collectors.toList());
@@ -37,6 +38,7 @@ public class Email {
 
     public void deleteAllMessages() {
         try {
+            log.info("Deleting all letters");
             getAllMessages().forEach(message -> {
                 try {
                     message.setFlag(Flags.Flag.DELETED, true);
@@ -57,6 +59,7 @@ public class Email {
         Stream.generate(this::getAllMessages)
                 .peek(messages -> {
                     try {
+                        log.info("Waiting letter");
                         Thread.sleep(5000);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
@@ -100,6 +103,8 @@ public class Email {
 
 
     private Store createStore(String email, String password) {
+
+        log.info("Creating Store");
 
         Properties properties = new Properties();
         properties.put("mail.pop3.host", "imap.ukr.net");
