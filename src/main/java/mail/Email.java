@@ -53,9 +53,42 @@ public class Email {
 
         LocalDateTime start = LocalDateTime.now();
         Stream.generate(this::getAllMessages)
+                .peek(messages -> {
+                    try {
+                        Thread.sleep(10000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                })
                 .takeWhile(list -> list.size() == 0 )
                 .takeWhile(webElement -> Duration.between(start, LocalDateTime.now()).toSeconds() < 180)
                 .forEach(webElement -> {});
+
+        return getAllMessages().size() > 0;
+    }
+
+    public boolean isMessageReceived(String messageName) {
+
+        LocalDateTime start = LocalDateTime.now();
+
+        Stream.generate(this::getAllMessages)
+                .peek(messages -> {
+                    try {
+                        Thread.sleep(10000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                })
+                .takeWhile(list -> list.stream()
+                        .filter(message -> {
+                            try {
+                                return message.getSubject().equals(messageName);
+                            } catch (Exception e) {
+                                throw new RuntimeException(e.getMessage());
+                            }
+                        }).collect(Collectors.toList()).size() == 0)
+                .takeWhile(webElement -> Duration.between(start, LocalDateTime.now()).toSeconds() < 180)
+                .forEach(messages -> {});
 
         return getAllMessages().size() > 0;
     }
