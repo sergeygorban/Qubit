@@ -76,8 +76,8 @@ public class Email {
         Stream.generate(this::getAllMessages)
                 .peek(messages -> {
                     try {
-                        Thread.sleep(5000);
                         log.info("Waiting letter");
+                        Thread.sleep(5000);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
