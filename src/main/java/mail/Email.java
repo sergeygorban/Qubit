@@ -38,7 +38,6 @@ public class Email {
 
     public void deleteAllMessages() {
         try {
-            log.info("Deleting all letters");
             getAllMessages().forEach(message -> {
                 try {
                     message.setFlag(Flags.Flag.DELETED, true);
