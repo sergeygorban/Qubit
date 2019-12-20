@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Properties;
+import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -74,6 +75,7 @@ public class Email {
 
         LocalDateTime start = LocalDateTime.now();
 
+        AtomicReference<Message> specificMessage = new AtomicReference<>();
         Stream.generate(this::getAllMessages)
                 .peek(messages -> {
                     try {
@@ -85,15 +87,18 @@ public class Email {
                 .takeWhile(list -> list.stream()
                         .filter(message -> {
                             try {
+                                log.info("Email message: " + message.getSubject());
                                 return message.getSubject().equals(messageName);
                             } catch (Exception e) {
                                 throw new RuntimeException(e.getMessage());
                             }
-                        }).collect(Collectors.toList()).size() == 0)
+                        })
+                        .peek(specificMessage::getAndSet)
+                        .collect(Collectors.toList()).size() == 0)
                 .takeWhile(webElement -> Duration.between(start, LocalDateTime.now()).toSeconds() < 180)
                 .forEach(messages -> {});
 
-        return getAllMessages().size() > 0;
+        return specificMessage.get() != null;
     }
 
 
@@ -114,5 +119,10 @@ public class Email {
         } catch (Exception e) {
             throw new RuntimeException(e.getMessage());
         }
+    }
+
+    public static void main(String[] args) {
+        System.out.println(Email.builder().email("").password("").build()
+                .isMessageReceived("[OpenALPR] Activate Account"));
     }
 }
