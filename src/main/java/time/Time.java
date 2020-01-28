@@ -21,4 +21,10 @@ public class Time {
         return Duration.between(firstDate, secondDate);
     }
 
+
+    public static void main(String[] args) {
+
+        System.out.println(LocalDateTime.now().format(DateTimeFormatter.ofPattern(DateTimeFormat.ISO_4.getFormat())));
+    }
+
 }
