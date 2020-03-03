@@ -1,2 +1,4 @@
-1. Creating jar with dependencies
-        mvn clean package
+Ctrl + Shift + R‎: ‎Заменить по проекту
+Ctrl + Shift + S‎: ‎Поиск по шаблону
+Ctrl + Shift + F‎: ‎Искать по проекту
+Ctrl + Shift + M‎: ‎Замена по шаблону
