@@ -105,9 +105,9 @@ public class Email {
 
     private Store createStore(String email, String password) {
         Properties properties = new Properties();
-        properties.put("mail.pop3.host", "imap.ukr.net");
-        properties.put("mail.pop3.port", "993");
-        properties.put("mail.pop3.startssl.enable", "true");
+        properties.put("mail.imap.user", "imap.ukr.net");
+        properties.put("mail.imap.port", "993");
+        properties.put("mail.imap.ssl.enable", "true");
         Session emailSession = Session.getDefaultInstance(properties);
 
         try {
