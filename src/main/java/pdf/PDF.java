@@ -3,12 +3,9 @@ package pdf;
 import lombok.SneakyThrows;
 import lombok.extern.java.Log;
 import org.apache.pdfbox.pdmodel.PDDocument;
-import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDResources;
 import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 import org.assertj.core.util.Streams;
-
-import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
@@ -25,6 +22,11 @@ public class PDF {
         this.document = PDDocument.load(new File(pathToFile));
     }
 
+    @SneakyThrows
+    public PDF(File file) {
+        this.document = PDDocument.load(file);
+    }
+
     public Map<String, PDImageXObject> getAllImages() {
 
         AtomicReference<PDResources> pdResources = new AtomicReference<>();
@@ -32,7 +34,6 @@ public class PDF {
 
         return Streams.stream(document.getPages().iterator())
                 .flatMap(page -> {
-
                     pdResources.set(page.getResources());
                     return Streams.stream(page.getResources().getXObjectNames());
                 })
