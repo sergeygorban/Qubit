@@ -15,10 +15,12 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Objects;
+import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Collectors;
 
 
@@ -148,6 +150,26 @@ public class Files {
         }
     }
 
+    // Create list of the rows for file
+    public List<String> createListRows(String filePath) {
+
+        try {
+            return java.nio.file.Files.readAllLines(Paths.get("C:\\OpenALPR\\Agent\\etc\\openalpr\\alprd.conf"));
+        } catch (IOException e) {
+            throw new RuntimeException(e.getMessage());
+        }
+    }
+
+    // Write file
+    public void writeFile(String filePath, String content) {
+
+        try {
+            java.nio.file.Files.write(Paths.get(filePath), content.getBytes(), StandardOpenOption.CREATE);
+        } catch (IOException e) {
+            throw new RuntimeException(e.getMessage());
+        }
+    }
+
     // Closing the application window
     public  void closingApplicationWindow (String windowTitle) {
 
@@ -190,6 +212,5 @@ public class Files {
         }
 
     }
-
 }
 

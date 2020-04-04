@@ -1,7 +1,11 @@
+import jna.Mouse;
+import org.apache.commons.lang3.RandomUtils;
+
 import javax.mail.*;
 import java.io.IOException;
 import java.security.GeneralSecurityException;
 import java.util.Properties;
+import java.util.stream.Stream;
 
 
 public class Main {
@@ -9,15 +13,16 @@ public class Main {
     public static void main(String[] args) throws GeneralSecurityException, IOException, MessagingException {
 
 
-        /*Stream.iterate(0, n -> n + 1).forEach(n -> {
+        Stream.iterate(0, n -> n + 1).forEach(n -> {
 
             Mouse.mouseLeftClick();
             try {
                 Thread.sleep(RandomUtils.nextInt(7000, 10000));
             } catch (InterruptedException e) {
                 e.printStackTrace();
+
             }
-        });*/
+        });
 
 
 
