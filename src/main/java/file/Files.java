@@ -154,7 +154,7 @@ public class Files {
     public List<String> createListRows(String filePath) {
 
         try {
-            return java.nio.file.Files.readAllLines(Paths.get("C:\\OpenALPR\\Agent\\etc\\openalpr\\alprd.conf"));
+            return java.nio.file.Files.readAllLines(Paths.get(filePath));
         } catch (IOException e) {
             throw new RuntimeException(e.getMessage());
         }
@@ -164,6 +164,17 @@ public class Files {
     public void writeFile(String filePath, String content) {
 
         try {
+            java.nio.file.Files.write(Paths.get(filePath), content.getBytes(), StandardOpenOption.CREATE);
+        } catch (IOException e) {
+            throw new RuntimeException(e.getMessage());
+        }
+    }
+
+    // Delete content and write file
+    public void deleteContentAndWriteFile(String filePath, String content) {
+
+        try {
+            java.nio.file.Files.write(Paths.get(filePath), "".getBytes(), StandardOpenOption.TRUNCATE_EXISTING);
             java.nio.file.Files.write(Paths.get(filePath), content.getBytes(), StandardOpenOption.CREATE);
         } catch (IOException e) {
             throw new RuntimeException(e.getMessage());
