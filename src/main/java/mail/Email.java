@@ -87,7 +87,7 @@ public class Email {
                         .filter(message -> {
                             try {
                                 log.info("Email message: " + message.getSubject());
-                                return message.getSubject().equals(messageName);
+                                return message.getSubject().contains(messageName);
                             } catch (Exception e) {
                                 throw new RuntimeException(e.getMessage());
                             }
