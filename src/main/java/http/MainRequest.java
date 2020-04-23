@@ -111,7 +111,8 @@ public class MainRequest {
         }
 
         HttpUriRequest request = requestBuilder.build();
-        this.request = creatingRequest(request, cookieStore, parameters != null ? parameters.toString() : "", requestObject);
+        //this.request = creatingRequest(request, cookieStore, parameters != null ? parameters.toString() : "", requestObject);
+        this.request = creatingRequest(request, cookieStore, null, requestObject);
         log.info(this.request);
 
         try (CloseableHttpClient client = httpClientBuilder.build()) {
