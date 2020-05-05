@@ -6,6 +6,7 @@ import lombok.Getter;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.util.Properties;
@@ -32,6 +33,9 @@ public class Driver {
 
             ChromeOptions options = new ChromeOptions();
             options.addArguments("start-maximized");
+
+            System.setProperty("webdriver.chrome.logfile", "G:\\chromedriver.log");
+            System.setProperty("webdriver.chrome.verboseLogging", "true");
             String pathToProfile = props.getProperty("chromeProfile");
 
             if (pathToProfile != null) {

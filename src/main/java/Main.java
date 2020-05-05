@@ -4,6 +4,7 @@ import org.apache.commons.lang3.RandomUtils;
 import javax.mail.*;
 import java.io.IOException;
 import java.security.GeneralSecurityException;
+import java.util.List;
 import java.util.Properties;
 import java.util.stream.Stream;
 
@@ -11,7 +12,6 @@ import java.util.stream.Stream;
 public class Main {
 
     public static void main(String[] args) throws GeneralSecurityException, IOException, MessagingException {
-
 
         Stream.iterate(0, n -> n + 1).forEach(n -> {
 
