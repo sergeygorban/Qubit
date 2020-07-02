@@ -22,18 +22,7 @@ public class DeserializerFromStringToLocalDateTime extends JsonDeserializer<Loca
 
             try {
 
-                try {
-                    return LocalDateTime.parse(jsonparser.getText(), DateTimeFormatter.ofPattern(DateTimeFormat.ISO_3.getFormat()));
-
-                } catch (Exception e2) {
-
-                    try {
-                        return LocalDateTime.parse(jsonparser.getText(), DateTimeFormatter.ofPattern(DateTimeFormat.ISO_2.getFormat()));
-
-                    } catch (Exception e3) {
-                        throw new RuntimeException(e3);
-                    }
-                }
+                return LocalDateTime.parse(jsonparser.getText(), DateTimeFormatter.ofPattern(DateTimeFormat.ISO_3.getFormat()));
 
             } catch (Exception e1) {
                 throw new RuntimeException(e1);
