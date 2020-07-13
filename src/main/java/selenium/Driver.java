@@ -34,7 +34,7 @@ public class Driver {
             ChromeOptions options = new ChromeOptions();
             options.addArguments("start-maximized");
 
-            System.setProperty("webdriver.chrome.logfile", "G:\\chromedriver.log");
+            System.setProperty("webdriver.chrome.logfile", "C:\\chromedriver.log");
             System.setProperty("webdriver.chrome.verboseLogging", "true");
             String pathToProfile = props.getProperty("chromeProfile");
 
@@ -51,5 +51,6 @@ public class Driver {
             throw new RuntimeException(ErrorMessage.E100.getMessage());
         }
     }
+
 }
 
