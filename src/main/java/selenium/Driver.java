@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
+import props.Props;
 
 import java.util.Properties;
 
@@ -50,6 +51,12 @@ public class Driver {
         } else {
             throw new RuntimeException(ErrorMessage.E100.getMessage());
         }
+    }
+
+
+    public static void main(String[] args) {
+
+        Driver.builder().props(Props.builder().fileName("props.properties").build().getProps()).build().getWebDriver();
     }
 
 }
