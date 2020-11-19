@@ -287,7 +287,10 @@ public abstract class Page implements Waiting {
     public String getTextFromHiddenWebElement(WebElement element) {
 
         try {
-            return element.getAttribute("textContent").trim();
+
+            String text = element.getAttribute("textContent").trim();
+            return text.isEmpty() ? element.getAttribute("value").trim() : text;
+
         } catch (Exception e) {
             e.printStackTrace();
             return null;
