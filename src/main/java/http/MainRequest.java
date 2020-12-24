@@ -19,6 +19,7 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.ssl.SSLContextBuilder;
 import org.apache.http.util.EntityUtils;
 
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Map;
@@ -118,7 +119,7 @@ public class MainRequest {
         try (CloseableHttpClient client = httpClientBuilder.build()) {
 
             CloseableHttpResponse httpResponse = client.execute(request);
-            String response = EntityUtils.toString(httpResponse.getEntity());
+            String response = EntityUtils.toString(httpResponse.getEntity(), "UTF-8");
 
             this.statusCode = httpResponse.getStatusLine().getStatusCode();
             this.headers = httpResponse.getAllHeaders();

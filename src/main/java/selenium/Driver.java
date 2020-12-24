@@ -35,8 +35,8 @@ public class Driver {
             ChromeOptions options = new ChromeOptions();
             options.addArguments("start-maximized");
 
-            System.setProperty("webdriver.chrome.logfile", "C:\\chromedriver.log");
-            System.setProperty("webdriver.chrome.verboseLogging", "true");
+            //System.setProperty("webdriver.chrome.logfile", "C:\\chromedriver.log");
+            //System.setProperty("webdriver.chrome.verboseLogging", "true");
             String pathToProfile = props.getProperty("chromeProfile");
 
             if (pathToProfile != null) {
