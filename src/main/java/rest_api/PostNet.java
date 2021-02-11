@@ -1,6 +1,5 @@
 package rest_api;
 
-import org.apache.http.client.utils.URIBuilder;
 
 import java.io.IOException;
 import java.net.*;
@@ -8,18 +7,14 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.time.Duration;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 
-public class PostNet {
+public class PostNet extends AbstractMethod {
 
     private RestRequest restRequest;
-    private URI uri;
     private CookieManager cookieManager;
     private HttpResponse<byte []> httpResponse;
+    private URI uri;
 
     public PostNet(RestRequest restRequest) {
         this.restRequest = restRequest;
@@ -32,11 +27,7 @@ public class PostNet {
         httpClientBuilder.connectTimeout(restRequest.getConnectTimeout() != null ? Duration.ofSeconds(restRequest.getConnectTimeout()) : Duration.ofSeconds(20));
 
         // Creating URI
-        try {
-            uri = new URI(restRequest.getUrl() + restRequest.getPath());
-        } catch (URISyntaxException e) {
-            throw new RuntimeException(e);
-        }
+        uri = createURI(restRequest);
 
         // Creating cookies
         if (restRequest.getCookie() != null) {
@@ -60,9 +51,11 @@ public class PostNet {
         httpRequest.headers().map().entrySet().forEach(System.out::println);
 
 
+
         // Sending request
         try {
             httpResponse = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofByteArray());
+            System.out.println(httpResponse.request().headers().toString());
         } catch (IOException | InterruptedException e) {
             throw new RuntimeException(e);
         }

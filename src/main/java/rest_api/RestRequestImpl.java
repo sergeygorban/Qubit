@@ -11,6 +11,7 @@ public class RestRequestImpl implements RestRequest {
     private Integer socketTimeout;
     private String url;
     private String path;
+    private String pathWithParam;
     private Map<String, String> headers;
     private Map<String, String> cookie;
     private Object requestObject;
@@ -41,6 +42,11 @@ public class RestRequestImpl implements RestRequest {
     @Override
     public String getPath() {
         return path;
+    }
+
+    @Override
+    public String getPathWithParam() {
+        return pathWithParam;
     }
 
     @Override
@@ -90,6 +96,12 @@ public class RestRequestImpl implements RestRequest {
     @Override
     public RestRequest path(String path) {
         this.path = path;
+        return this;
+    }
+
+    @Override
+    public RestRequest pathWithParam(String pathWithParam) {
+        this.pathWithParam = pathWithParam;
         return this;
     }
 
