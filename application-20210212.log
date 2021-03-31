@@ -1,0 +1,22 @@
+2021-02-12 16:41:48.374 [main] INFO  rest_api.PostNet - REQUEST: 
+2021-02-12 16:41:48.379 [main] INFO  rest_api.PostNet - Method: POST
+2021-02-12 16:41:48.380 [main] INFO  rest_api.PostNet - URL: https://proxy-abs.a-bank.com.ua/corp-sc-api/api/v1/open-deposit-corp
+2021-02-12 16:41:48.386 [main] INFO  rest_api.PostNet - HTTP Header: Accept = application/json
+2021-02-12 16:41:48.386 [main] INFO  rest_api.PostNet - HTTP Header: Content-Type = application/json
+2021-02-12 16:41:48.388 [main] INFO  rest_api.PostNet - HTTP Cookie: aasd = 111111
+2021-02-12 16:41:48.389 [main] INFO  rest_api.PostNet - Request Body: {"sid":"210212ppa1jz3hjq2tc4","terms":"Выплата процентов в конце срока","currency":980,"amount":1.0,"channel":"a24_web","request_ref":"Af26DnfRN","client_id":1005785469,"date_from":"2021-01-06","date_to":"2021-02-05","product_code":"D000001"}
+
+
+2021-02-12 16:41:49.271 [main] INFO  rest_api.PostNet - RESPONSE: 
+2021-02-12 16:41:49.272 [main] INFO  rest_api.PostNet - HTTP Status: 200
+2021-02-12 16:42:19.458 [main] INFO  rest_api.PostNet - REQUEST: 
+2021-02-12 16:42:19.464 [main] INFO  rest_api.PostNet - Method: POST
+2021-02-12 16:42:19.464 [main] INFO  rest_api.PostNet - URL: https://proxy-abs.a-bank.com.ua/corp-sc-api/api/v1/open-deposit-corp
+2021-02-12 16:42:19.465 [main] INFO  rest_api.PostNet - HTTP Header: Accept = application/json
+2021-02-12 16:42:19.465 [main] INFO  rest_api.PostNet - HTTP Header: Content-Type = application/json
+2021-02-12 16:42:19.466 [main] INFO  rest_api.PostNet - HTTP Cookie: aasd = 111111
+2021-02-12 16:42:19.466 [main] INFO  rest_api.PostNet - Request Body: {"sid":"210212ppa1jz3hjq2tc4","terms":"Выплата процентов в конце срока","currency":980,"amount":1.0,"channel":"a24_web","request_ref":"Af26DnfRN","client_id":1005785469,"date_from":"2021-01-06","date_to":"2021-02-05","product_code":"D000001"}
+
+
+2021-02-12 16:42:20.351 [main] INFO  rest_api.PostNet - RESPONSE: 
+2021-02-12 16:42:20.351 [main] INFO  rest_api.PostNet - HTTP Status: 200

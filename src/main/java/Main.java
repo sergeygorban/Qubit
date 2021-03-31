@@ -1,9 +1,18 @@
 import jna.Mouse;
 import org.apache.commons.lang3.RandomUtils;
+import org.apache.pdfbox.cos.COSDocument;
+import org.apache.pdfbox.io.RandomAccessBufferedFileInputStream;
+import org.apache.pdfbox.io.RandomAccessRead;
+import org.apache.pdfbox.pdfparser.PDFParser;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.text.PDFTextStripper;
 
 import javax.mail.*;
+import java.io.File;
 import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.security.GeneralSecurityException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 import java.util.stream.Stream;
@@ -13,7 +22,7 @@ public class Main {
 
     public static void main(String[] args) throws GeneralSecurityException, IOException, MessagingException {
 
-        Stream.iterate(0, n -> n + 1).forEach(n -> {
+        /*Stream.iterate(0, n -> n + 1).forEach(n -> {
 
             Mouse.mouseLeftClick();
             try {
@@ -22,18 +31,20 @@ public class Main {
                 e.printStackTrace();
 
             }
-        });
+        });*/
 
+        File f = new File("D:/turnover_certificate.pdf");
+        String parsedText;
+        RandomAccessRead randomAccessRead = new RandomAccessBufferedFileInputStream(f);
+        PDFParser parser = new PDFParser(randomAccessRead);
+        parser.parse();
 
+        COSDocument cosDoc = parser.getDocument();
+        PDFTextStripper pdfStripper = new PDFTextStripper();
+        PDDocument pdDoc = new PDDocument(cosDoc);
+        parsedText = pdfStripper.getText(pdDoc);
 
-
-
-
-
-
-
-
-
+        System.out.println(parsedText);
 
 
 /*        Gmail gmail = new Gmail.Builder(GoogleNetHttpTransport.newTrustedTransport(),
@@ -70,7 +81,7 @@ public class Main {
 
         // Укр нет
 
-        try {
+       /* try {
 
         Properties properties = new Properties();
         properties.put("mail.pop3.host", "imap.ukr.net");
@@ -107,7 +118,7 @@ public class Main {
 
     } catch (Exception e) {
         e.printStackTrace();
-    }
+    }*/
 
 
      /*   try {

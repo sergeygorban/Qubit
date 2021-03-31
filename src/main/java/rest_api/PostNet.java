@@ -1,6 +1,9 @@
 package rest_api;
 
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.io.IOException;
 import java.net.*;
 import java.net.http.HttpClient;
@@ -8,8 +11,9 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.time.Duration;
 
-
 public class PostNet extends AbstractMethod {
+
+    private static final Logger logger = LogManager.getLogger();
 
     private RestRequest restRequest;
     private CookieManager cookieManager;
@@ -44,25 +48,25 @@ public class PostNet extends AbstractMethod {
         HttpRequest httpRequest = httpRequestBuilder.build();
         HttpClient httpClient = httpClientBuilder.build();
 
-
         // Log
-        System.out.println(httpRequest.method());
-        System.out.println(httpRequest.uri());
-        httpRequest.headers().map().entrySet().forEach(System.out::println);
-
+        logger.info("REQUEST: ");
+        logger.info("Method: " + httpRequest.method());
+        logger.info("URL: " + httpRequest.uri());
+        httpRequest.headers().map().forEach((key, value) -> logger.info("HTTP Header: " + key + " = " + value.get(0)));
+        restRequest.getCookie().forEach((key, value) -> logger.info("HTTP Cookie: " + key + " = " + value));
+        logger.info("Request Body: " + restRequest.getRequestBody() + "\n");
 
 
         // Sending request
         try {
             httpResponse = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofByteArray());
-            System.out.println(httpResponse.request().headers().toString());
         } catch (IOException | InterruptedException e) {
             throw new RuntimeException(e);
         }
 
         // Log
-        System.out.println(httpResponse.statusCode());
-
+        logger.info("RESPONSE: ");
+        logger.info("HTTP Status: " + httpResponse.statusCode());
         return this;
     }
 

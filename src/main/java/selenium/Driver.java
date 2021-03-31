@@ -1,15 +1,19 @@
 package selenium;
 
 import constants.ErrorMessage;
+import file.Files;
 import lombok.Builder;
 import lombok.Getter;
 import org.openqa.selenium.Cookie;
+import org.openqa.selenium.Proxy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
 import props.Props;
 
+import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.Properties;
 
 @Getter
@@ -54,8 +58,7 @@ public class Driver {
     }
 
 
-    public static void main(String[] args) {
-
+    public static void main(String[] args) throws IOException {
         Driver.builder().props(Props.builder().fileName("props.properties").build().getProps()).build().getWebDriver();
     }
 

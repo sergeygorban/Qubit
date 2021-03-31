@@ -2,7 +2,19 @@ Ctrl + Shift + R‎: ‎Заменить по проекту
 Ctrl + Shift + S‎: ‎Поиск по шаблону
 Ctrl + Shift + F‎: ‎Искать по проекту
 Ctrl + Shift + M‎: ‎Замена по шаблону
-
+Ctrl+Shift+NumPad -:  Expand all code fragments
+Ctrl+Shift+NumPad +:  Collapse all code fragments
 
 
 git pull origin development
+
+1. Run test
+2. mvn clean test site
+3. mvn io.qameta.allure:allure-maven:serve or mvn allure:serve or mvn allure:report
+4. mvn clean install -U
+
+// Запуск тестов с консоли
+mvn clean
+mvn install:install-file -Dfile=src\main\resources\Qubit-1.0-SNAPSHOT.jar -DgroupId=Qubit -DartifactId=Qubit -Dversion=1.0 -Dpackaging=jar
+mvn dependency:resolve
+mvn test -DsuiteXmlFile=smoke.xml
