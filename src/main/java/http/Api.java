@@ -1,5 +1,6 @@
 package http;
 import org.apache.http.cookie.Cookie;
+import org.apache.http.entity.ContentType;
 
 import java.util.Map;
 
@@ -14,8 +15,8 @@ public interface Api {
     default long getWaiting() {
         return 8000;
     };
-    default String geCharset() {
-        return "UTF-8";
+    default ContentType getContentType() {
+        return null;
     }
     default int getConnectTimeout() {
         return 3000;

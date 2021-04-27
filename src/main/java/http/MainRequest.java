@@ -11,6 +11,7 @@ import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.client.methods.RequestBuilder;
 import org.apache.http.conn.ssl.NoopHostnameVerifier;
 import org.apache.http.cookie.Cookie;
+import org.apache.http.entity.ContentType;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.BasicCookieStore;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -19,7 +20,16 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.ssl.SSLContextBuilder;
 import org.apache.http.util.EntityUtils;
 
+import javax.net.ssl.SSLContext;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.nio.charset.Charset;
+import java.nio.file.Paths;
+import java.security.KeyStore;
+import java.security.cert.Certificate;
+import java.security.cert.CertificateException;
+import java.security.cert.CertificateFactory;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Map;
@@ -35,13 +45,17 @@ public class MainRequest {
 
     private int connectTimeout = 12000;
     private int socketTimeout = 12000;
-    private String charset = "UTF-8";
+    private ContentType contentType;
 
 
     public String sendRequest(Api api, RequestObject object) {
 
         this.connectTimeout = api.getConnectTimeout();
         this.socketTimeout = api.getSocketTimeout();
+
+        if (api.getContentType() != null) {
+            this.contentType = api.getContentType();
+        }
 
         return sendRequest(api.getMethod().name(), api.getUrl(), api.getHeaders(), api.getCookie(),
                 object.getRequestParameters(), object.getRequestObject());
@@ -52,6 +66,10 @@ public class MainRequest {
 
         this.connectTimeout = api.getConnectTimeout();
         this.socketTimeout = api.getSocketTimeout();
+
+        if (api.getContentType() != null) {
+            this.contentType = api.getContentType();
+        }
 
         return sendRequest(api.getMethod().name(), api.getUrl(), api.getHeaders(), api.getCookie(),
                 null, json);
@@ -80,7 +98,13 @@ public class MainRequest {
         if (!method.equals("GET")) {
 
             if (requestObject != null) {
-                requestBuilder.setEntity(new StringEntity(requestObject, charset));
+
+                if (contentType != null){
+                    requestBuilder.setEntity(new StringEntity(requestObject, contentType));
+                } else {
+                    requestBuilder.setEntity(new StringEntity(requestObject, "UTF-8"));
+                }
+
             }
 
             if (parameters != null) {
@@ -166,4 +190,5 @@ public class MainRequest {
                 .findFirst()
                 .orElse("No cookies found");
     }
+
 }

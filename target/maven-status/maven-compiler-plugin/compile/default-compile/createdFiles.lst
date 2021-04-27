@@ -4,7 +4,10 @@ constants\Const.class
 creating_object\DeserializerFromStringToLocalDate_1.class
 creating_object\DeserializerFromTimeStampToLocalDateTime.class
 creating_object\SqlToObject.class
+http\Method.class
 selenium\Condition$1.class
+rest_api\CorpOpenDepositRes.class
+rest_api\RestResponseImpl.class
 selenium\Condition$4.class
 service\Service.class
 excel\RequestFromExcel.class
@@ -12,6 +15,7 @@ creating_object\ObjectToString.class
 selenium\Driver$DriverBuilder.class
 selenium\listener\ClassListener.class
 selenium\TestMethods.class
+rest_api\RestRequestImpl.class
 selenium\Methods.class
 singleton\Singleton.class
 constants\ErrorMessage.class
@@ -19,10 +23,13 @@ creating_object\SerializerFromLocalDateTimeToString.class
 mail\Email.class
 selenium\Condition$2.class
 time\DateTimeFormat.class
+rest_api\Method.class
+rest_api\RestRequest.class
 excel\SendEmail.class
 excel\Requests.class
 http\RequestObject.class
 jna\Mouse.class
+rest_api\HttpImplementation.class
 selenium\Driver.class
 selenium\Condition.class
 selenium\Instances.class
@@ -36,6 +43,7 @@ excel\SendEmail$1.class
 google\authorization\Auth.class
 time\Time.class
 mail\Email$EmailBuilder.class
+rest_api\AbstractMethod.class
 selenium\AllureReport.class
 http\MainRequest.class
 http\Api$Method.class
@@ -47,9 +55,12 @@ creating_object\ObjectToMap.class
 selenium\Waiting.class
 selenium\listener\TestListener.class
 creating_object\DeserializerFromStringToLocalDateTime.class
+rest_api\PostNet.class
+rest_api\RestResponse.class
 pdf\PDF.class
 singleton\Singleton$1.class
 selenium\Condition$3.class
+rest_api\RestApi.class
 creating_object\JsonValues.class
 google\sheets\GoogleSheets.class
 props\Props.class

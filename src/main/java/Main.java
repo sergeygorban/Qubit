@@ -1,3 +1,4 @@
+import com.mysql.cj.x.protobuf.MysqlxDatatypes;
 import jna.Mouse;
 import org.apache.commons.lang3.RandomUtils;
 import org.apache.pdfbox.cos.COSDocument;
@@ -20,7 +21,7 @@ import java.util.stream.Stream;
 
 public class Main {
 
-    public static void main(String[] args) throws GeneralSecurityException, IOException, MessagingException {
+    public static void main(MysqlxDatatypes.Scalar.String[] args) throws GeneralSecurityException, IOException, MessagingException {
 
         /*Stream.iterate(0, n -> n + 1).forEach(n -> {
 
@@ -34,6 +35,7 @@ public class Main {
         });*/
 
         File f = new File("D:/turnover_certificate.pdf");
+
         String parsedText;
         RandomAccessRead randomAccessRead = new RandomAccessBufferedFileInputStream(f);
         PDFParser parser = new PDFParser(randomAccessRead);
