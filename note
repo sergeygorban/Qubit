@@ -18,3 +18,15 @@ mvn clean
 mvn install:install-file -Dfile=src\main\resources\Qubit-1.0-SNAPSHOT.jar -DgroupId=Qubit -DartifactId=Qubit -Dversion=1.0 -Dpackaging=jar
 mvn dependency:resolve
 mvn test -DsuiteXmlFile=smoke.xml
+
+
+
+// Запуск тестов с консоли
+1. Создать SSH key, если не создан, с помощью GIT Bash и поместить в папку C:\Users\HZ190986GSS\.ssh
+2. git clone git@git-ci.ab.loc:testing/insurance-1-0.git D:\AutoTests\insurance-1-0 или, если проект существует,
+   то перейти в проект и запустить git pull origin master
+3. cd /D D:\AutoTests\insurance-1-0
+4. mvn clean
+5. mvn install:install-file -Dfile=src\main\resources\Qubit-1.0-SNAPSHOT.jar -DgroupId=Qubit -DartifactId=Qubit -Dversion=1.0 -Dpackaging=jar
+6. mvn dependency:resolve
+7. mvn test -DsuiteXmlFile=smoke.xml
