@@ -30,17 +30,30 @@ public class Driver {
         createWebDriver();
     }
 
-
     private void createWebDriver() {
 
         if (props.getProperty("driver").equals("Chrome")) {
             System.setProperty("webdriver.chrome.driver", props.getProperty("chrome_driver_path"));
 
             ChromeOptions options = new ChromeOptions();
+
+            // Open Browser in maximized mode
             options.addArguments("start-maximized");
 
-            //System.setProperty("webdriver.chrome.logfile", "C:\\chromedriver.log");
-            //System.setProperty("webdriver.chrome.verboseLogging", "true");
+            // Without real opening the browser
+            if (props.getProperty("is_jenkins").equals("true")) {
+                options.addArguments("--headless");
+                options.addArguments("--no-sandbox");
+                options.addArguments("--disable-dev-shm-usage");
+            }
+
+            // Writing Selenium log
+            if (props.getProperty("is_selenium_log").equals("true")) {
+                System.setProperty("webdriver.chrome.logfile", props.getProperty("log_path"));
+                System.setProperty("webdriver.chrome.verboseLogging", "true");
+            }
+
+
             String pathToProfile = props.getProperty("chromeProfile");
 
             if (pathToProfile != null) {
@@ -48,19 +61,13 @@ public class Driver {
             }
             webDriver = new ChromeDriver(options);
 
-            if (cookie != null) {
-                webDriver.manage().addCookie(cookie);
-            }
-
         } else {
             throw new RuntimeException(ErrorMessage.E100.getMessage());
         }
+
+        if (cookie != null) {
+            webDriver.manage().addCookie(cookie);
+        }
     }
-
-
-    public static void main(String[] args) throws IOException {
-        Driver.builder().props(Props.builder().fileName("props.properties").build().getProps()).build().getWebDriver();
-    }
-
 }
 

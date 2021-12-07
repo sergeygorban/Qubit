@@ -33,79 +33,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5e97e5a9-f98b-43cc-99ce-06291de217ab" name="Default Changelist" comment="new">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dependency-reduced-pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dependency-reduced-pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/note" beforeDir="false" afterPath="$PROJECT_DIR$/note" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/constants/Const.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/constants/Const.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/constants/ErrorMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/constants/ErrorMessage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/creating_object/DeserializerFromStringToLocalDate.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/creating_object/DeserializerFromStringToLocalDate.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/creating_object/DeserializerFromStringToLocalDateTime.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/creating_object/DeserializerFromStringToLocalDateTime.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/creating_object/DeserializerFromStringToLocalDate_1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/creating_object/DeserializerFromStringToLocalDate_1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/creating_object/DeserializerFromTimeStampToLocalDateTime.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/creating_object/DeserializerFromTimeStampToLocalDateTime.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/creating_object/JsonValues.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/creating_object/JsonValues.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/creating_object/ObjectToMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/creating_object/ObjectToMap.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/creating_object/ObjectToString.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/creating_object/ObjectToString.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/creating_object/SerializerFromLocalDateTimeToString.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/creating_object/SerializerFromLocalDateTimeToString.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/creating_object/SqlToObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/creating_object/SqlToObject.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/creating_object/StringToObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/creating_object/StringToObject.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/creating_object/ValueForJson.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/creating_object/ValueForJson.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/db/Connections.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/db/Connections.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/excel/Api.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/excel/Api.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/excel/RequestFromExcel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/excel/RequestFromExcel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/excel/Requests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/excel/Requests.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/excel/SendEmail$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/excel/SendEmail$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/excel/SendEmail.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/excel/SendEmail.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/file/Files.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/file/Files.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/google/authorization/Auth.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/google/authorization/Auth.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/google/sheets/GoogleSheets.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/google/sheets/GoogleSheets.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/http/Api$Method.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/http/Api$Method.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/http/Api.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/http/Api.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/http/Cookies.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/http/Cookies.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/http/MainRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/http/MainRequest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/http/Method.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/http/Method.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/http/RequestObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/http/RequestObject.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/jna/Mouse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/jna/Mouse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/jna/Window.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/jna/Window.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mail/Email$EmailBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mail/Email$EmailBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mail/Email.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mail/Email.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pdf/PDF.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pdf/PDF.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/props/Props$PropsBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/props/Props$PropsBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/props/Props.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/props/Props.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/rest_api/AbstractMethod.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/rest_api/AbstractMethod.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/rest_api/CorpOpenDepositRes.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/rest_api/CorpOpenDepositRes.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/rest_api/HttpImplementation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/rest_api/HttpImplementation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/rest_api/Method.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/rest_api/Method.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/rest_api/PostNet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/rest_api/PostNet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/rest_api/RestApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/rest_api/RestApi.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/rest_api/RestRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/rest_api/RestRequest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/rest_api/RestRequestImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/rest_api/RestRequestImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/rest_api/RestResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/rest_api/RestResponse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/rest_api/RestResponseImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/rest_api/RestResponseImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/selenium/AllureReport.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/selenium/AllureReport.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/selenium/Condition$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/selenium/Condition$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/selenium/Condition$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/selenium/Condition$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/selenium/Condition$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/selenium/Condition$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/selenium/Condition$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/selenium/Condition$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/selenium/Condition.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/selenium/Condition.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/selenium/Driver$DriverBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/selenium/Driver$DriverBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/selenium/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/selenium/Driver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Qubit-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/Qubit-1.0.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/selenium/Driver.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/selenium/Driver.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/selenium/Instances.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/selenium/Instances.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/selenium/Methods.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/selenium/Methods.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/selenium/Page.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/selenium/Page.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/selenium/TestMethods.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/selenium/TestMethods.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/selenium/Waiting.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/selenium/Waiting.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/selenium/listener/ClassListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/selenium/listener/ClassListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/selenium/listener/TestListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/selenium/listener/TestListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/service/Service.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/Service.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/singleton/Singleton$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/singleton/Singleton$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/singleton/Singleton.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/singleton/Singleton.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/time/DateTimeFormat.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/time/DateTimeFormat.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/time/Time.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/time/Time.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/original-Qubit-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/original-Qubit-1.0.jar" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -319,7 +253,8 @@
       <workItem from="1619537676492" duration="15000" />
       <workItem from="1619538905581" duration="3565000" />
       <workItem from="1619554034587" duration="635000" />
-      <workItem from="1638915417453" duration="1006000" />
+      <workItem from="1638915417453" duration="1237000" />
+      <workItem from="1638916831304" duration="1654000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <created>1594599197759</created>
@@ -363,7 +298,21 @@
       <option name="project" value="LOCAL" />
       <updated>1617175451341</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="new">
+      <created>1638916645517</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1638916645517</updated>
+    </task>
+    <task id="LOCAL-00008" summary="new">
+      <created>1638916662057</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1638916662058</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -400,21 +349,25 @@
     <option name="LAST_COMMIT_MESSAGE" value="new" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1877" height="318" key="GridCell.Tab.0.bottom" timestamp="1638916408405">
+    <state width="1877" height="318" key="GridCell.Tab.0.bottom" timestamp="1638918179623">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="318" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.-163.1920.1040@0.0.1920.1040" timestamp="1638916408405" />
-    <state width="1877" height="318" key="GridCell.Tab.0.center" timestamp="1638916408405">
+    <state width="1877" height="318" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.-163.1920.1040@0.0.1920.1040" timestamp="1638918179623" />
+    <state width="1877" height="318" key="GridCell.Tab.0.center" timestamp="1638918179623">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="318" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.-163.1920.1040@0.0.1920.1040" timestamp="1638916408405" />
-    <state width="1877" height="318" key="GridCell.Tab.0.left" timestamp="1638916408405">
+    <state width="1877" height="318" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.-163.1920.1040@0.0.1920.1040" timestamp="1638918179623" />
+    <state width="1877" height="318" key="GridCell.Tab.0.left" timestamp="1638918179623">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="318" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.-163.1920.1040@0.0.1920.1040" timestamp="1638916408405" />
-    <state width="1877" height="318" key="GridCell.Tab.0.right" timestamp="1638916408405">
+    <state width="1877" height="318" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.-163.1920.1040@0.0.1920.1040" timestamp="1638918179623" />
+    <state width="1877" height="318" key="GridCell.Tab.0.right" timestamp="1638918179623">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="318" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.-163.1920.1040@0.0.1920.1040" timestamp="1638916408405" />
+    <state width="1877" height="318" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.-163.1920.1040@0.0.1920.1040" timestamp="1638918179623" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1638916646843">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.-163.1920.1040@0.0.1920.1040" timestamp="1638916646843" />
   </component>
 </project>
